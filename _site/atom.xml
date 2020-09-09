@@ -4,7 +4,7 @@
  <title>Vankenobi</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-09-09T16:14:42+03:00</updated>
+ <updated>2020-09-09T16:43:23+03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -18,6 +18,8 @@
    <updated>2020-06-07T19:15:00+03:00</updated>
    <id>http://localhost:4000/2020/06/07/Esp32-İle-Asenkron-Olarak-Çalışan-Web-Server-Projesi</id>
    <content type="html">&lt;h2 id=&quot;esp32-kartının-kurulumu&quot;&gt;Esp32 Kartının Kurulumu&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/file/d/1RBA39QFpLErzHYOGzV23YcPVw0rxgIsN/view&quot; alt=&quot;Asenkron&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Bilgisayarınızda halihazırda kurulu bir Arduino IDE’si olduğunu varsayıyorum. Ancak projede kullanacağımız ESP32, IDE’nin standart kurulumunda gelmiyor o yüzden bazı ek işlemler yapmamız gerekecek.&lt;/p&gt;
 
