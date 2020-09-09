@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Sidey</title>
+ <title>Vankenobi</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-01-30T20:11:37+02:00</updated>
+ <updated>2020-09-09T16:14:42+03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -13,388 +13,497 @@
 
  
  <entry>
-   <title>Difference between font formats</title>
-   <link href="http://localhost:4000/2019/08/31/difference-between-font-formats"/>
-   <updated>2019-08-31T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2019/08/31/difference-between-font-formats</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
+   <title>Esp32 İle Asenkron Olarak Çalışan Web Server Projesi</title>
+   <link href="http://localhost:4000/2020/06/07/esp32-i%CC%87le-asenkron-olarak-%C3%A7al%C4%B1%C5%9Fan-web-server-projesi"/>
+   <updated>2020-06-07T19:15:00+03:00</updated>
+   <id>http://localhost:4000/2020/06/07/Esp32-İle-Asenkron-Olarak-Çalışan-Web-Server-Projesi</id>
+   <content type="html">&lt;h2 id=&quot;esp32-kartının-kurulumu&quot;&gt;Esp32 Kartının Kurulumu&lt;/h2&gt;
 
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
+&lt;p&gt;Bilgisayarınızda halihazırda kurulu bir Arduino IDE’si olduğunu varsayıyorum. Ancak projede kullanacağımız ESP32, IDE’nin standart kurulumunda gelmiyor o yüzden bazı ek işlemler yapmamız gerekecek.&lt;/p&gt;
 
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
+&lt;p&gt;Arduino IDE’sini açıp
+&lt;span style=&quot;background-color:#e5eff5 padding:5px;border-radius:5px&quot;&gt;Dosya&amp;gt;Tercihler&lt;/span&gt; menüsünden &lt;span style=&quot;background-color:#e5eff5; padding:5px; border-radius:5px;&quot;&gt;Ek Devre Kartları Yöneticisi URL’leri&lt;/span&gt; kısmına aşağıdaki adresi ekleyelim:
+&lt;span style=&quot;background-color:#e5eff5;padding:5px&quot;&gt;https://dl.espressif.com/dl/package_esp32_index.json&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
+&lt;p&gt;Daha sonra &lt;span style=&quot;background-color:#e5eff5;padding:5px; border-radius:5px;&quot;&gt;Araçlar&amp;gt;Kart&amp;gt;Kart Yöneticisi&lt;/span&gt; kısmından Esp32 kartını bulup kuralım.&lt;/p&gt;
 
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1_UJ_4ufjx3jU0qw4xVHieJplmRmiBgTe&quot; alt=&quot;Kart Yöneticisi Penceresi&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;projeye-giriş&quot;&gt;Projeye Giriş&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1UtJH7mTVt5Axql39misBsLFdw_CotiET&quot; alt=&quot;Asenkron Server&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Projeye başlamadan önce senkron, asenkron gibi kavramları websocket’in ne olduğundan bahsetmek istiyorum.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;span style=&quot;background-color:#c0c0c0; padding:5px;border-radius:5px&quot;&gt;Senkron Nedir ?&lt;/span&gt;&lt;br /&gt;
+Kelime anlamı &lt;strong&gt;eşzamanlı&lt;/strong&gt; olan senkron kelimesi yazılımda birtakım işlemlerin sıra ile yapılmasıdır.Basit bir analoji yapmak gerekirse bir fatura ödeme merkezindesiniz ve faturanızı ödemek için kuyruğa girdiniz. Sizin önünüzde fatura ödemek isteyen kişilerin faturaları ödenmeden sizin faturanız ödenmez. İşte bu şekilde işlemleri sıralı bir şekilde yapılmasına senkron programlama denir.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;span style=&quot;background-color:#c0c0c0; padding:5px;border-radius:5px&quot;&gt; Asenkron Nedir ? &lt;/span&gt; &lt;br /&gt;
+Kelime anlamı “Aynı zamanda veya birlikte meydana gelmeyen” olan asenkron kelimesi yazılımda yürütülen işlemlerin uzun sürmesinden dolayı yürütülmesi gereken diğer işlemlerin beklemeden çalışmasına devam edebilmesini sağlar. Senkronu açıklarken yaptığım gibi basit bir analoji yapmam gerekirse mutfakta iki çeşit yemek pişiriyorsunuz ve birini yapmaya başladınız. Elinizdeki yemek kaynarken diğer yemeğe başlamak için elinizdeki yemeğin bitmesini beklemezsiniz. İşte bu duruma asenkron programlama denir.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;span style=&quot;background-color:#c0c0c0; padding:5px;border-radius:5px&quot;&gt; Websocket Nedir ? &lt;/span&gt; &lt;br /&gt;
+WebSocket, tek bir TCP bağlantısı üzerinden tam çift yönlü iletişim kanalı sağlayan bir bilgisayar iletişim protokolüdür. WebSocket protokolü, sunucuya ve sunucudan gerçek zamanlı veri aktarımını sağlayarak, tarayıcı ile web sunucusu arasında etkileşimi sağlamaktadır. Bu, sunucunun istemci istemeden tarayıcıya içerik gönderebileceği ve bağlantıyı açık tutarak istediği zaman mesaj alabilmesini veya gönderebilmesini sağlayan standart bir yöntem ile sağlanmaktadır.Bizim bu projemizde ise web sayfası yenilenmeden kart üzerindeki ledi açıp kapatabilmemizi sağlanıyor.&lt;br /&gt;
+&lt;span style=&quot;background-color:#c0c0c0; padding:5px;border-radius:5px&quot;&gt; Neden Websocket ? &lt;/span&gt;&lt;br /&gt;
+Yeni bir istek HTTP protokolündeki kuralların tekrar edilmesine ve fazla trafik kullanımına neden olur.Trafik kullanımı ve HTTP protokolüyle gerçek zamanlı uygulamaların yönetilmesi maliyetli ve zor olduğundan dolayı websocket kullanılır.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Proje içerisinde kullanacağımız kütüphaneler Esp32 kartımızın ağa bağlanmasını ve üzerinde bir web sayfasını asenkron çalıştırmasını sağlayacak.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;#include &amp;lt;WiFi.h&amp;gt;
+  #include &amp;lt;AsyncTCP.h&amp;gt;
+  #include &amp;lt;ESPAsyncWebServer.h&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Proje içerisinde kullanılan kütüphanelerin linkleri:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt; &lt;a href=&quot;https://github.com/me-no-dev/AsyncTCP&quot;&gt;AsyncTCP.h&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt; &lt;a href=&quot;https://github.com/me-no-dev/ESPAsyncWebServer/&quot;&gt;ESPAsyncWebServer.h&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt; Wifi.h kütüphanesi Arduino IDE’si içerisinde halihazırda mevcut. &lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;const char* ssid = &amp;quot;Ag Adi&amp;quot;;
+    const char* password = &amp;quot;Ag Parolasi&amp;quot;;
+    const int led = 2;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Ssid ve password kısmına bulunduğunuz ortamdaki ağın adını ve parolasını giriniz. Esp32 üzerindeki led  GPIO2 pinine bağlı olduğu için led isminde değişkeni bu pine atadık.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;const char index_html[] PROGMEM =&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Progmem anahtar sözcüğü normalde Esp32’nin Sram’ine kaydetmesi gerekirken Flash hafızasına kaydetmesini sağlar. Esp32’nin Flash hafızası 4MB’dır.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;void notFound(AsyncWebServerRequest *request) {
+    request-&amp;gt;send(404, &amp;quot;text/plain&amp;quot;, &amp;quot;Sayfa Bulunamdadi&amp;quot;);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;NotFound fonksiyonu sayfa bulunamadığında 404 hata kodunu ve sayfa bulunamadı mesajını gönderecek.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;AsyncWebServer server(80);&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;AsyncWebServer sınıfından server adlı bir nesne oluşturduk ve parametre olarak 80 verdik. Girilen parametre portu temsil ediyor.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;Serial.begin(115200);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  if (WiFi.waitForConnectResult() != WL_CONNECTED) {
+    Serial.println(&amp;quot;Wifi agina Baglanmadi!&amp;quot;);
+    return;
+  }
+  Serial.println();
+  Serial.print(&amp;quot;ESP IP Address: http://&amp;quot;);
+  Serial.println(WiFi.localIP());&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Bu kod bloğunda sırasıyla;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt;Seri haberleşmeyi başlattık ve baudrate hızını 115200 olarak ayarladık.&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt;Wifi modunu STA olarak ayarladık. STA İstasyon modudur. Esp32’yi erişim noktası tarafından kurulan bir WiFi ağına bağlamak için kullanılır.&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt;Begin metodu ile parametresi girilen wifi ağına bağlanır.&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt;İf bloğu wifi ağına bağlanıp bağlanmadığını kontrol ediyor. Ağa bağlanmadıysa seri monitöre “Wifi agina Baglanmadi!” yazdırır. Eğer bağlandıysa esp32’nin sunmuş olduğu web sayfasının linkini seri monitöre yazdırır.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;pinMode(led, OUTPUT);
+  digitalWrite(led, LOW);&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Led adlı değişkenin bulunduğu pine(GPIO2) çıkış verdik ve başlangıçtaki durumunu kapalı olarak belirledik.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;server.on(&amp;quot;/&amp;quot;, HTTP_GET, [](AsyncWebServerRequest *request){
+    request-&amp;gt;send_P(200, &amp;quot;text/html&amp;quot;, index_html);
+  });&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Gelen isteğe karşılık web sayfasını istemciye gönderir.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;server.on(&amp;quot;/ac&amp;quot;, HTTP_GET, [] (AsyncWebServerRequest *request) {
+    digitalWrite(output, HIGH);
+    request-&amp;gt;send(200, &amp;quot;text/plain&amp;quot;, &amp;quot;ac sinyali gonderildi.&amp;quot;);
+  });&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Gelen “/ac” isteğine karşılık ledi açık konuma getirir ve istemciye “ac sinyali gonderildi.” mesajını iletir.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;server.on(&amp;quot;/kapat&amp;quot;, HTTP_GET, [] (AsyncWebServerRequest *request) {
+    digitalWrite(output, LOW);
+    request-&amp;gt;send(200, &amp;quot;text/plain&amp;quot;, &amp;quot;kapat sinyali gönderildi.&amp;quot;);
+  });&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Gelen “/kapat” isteğine karşılık ledi kapalı konuma getirir ve istemciye “kapat sinyali gonderildi.” mesajını iletir.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;server.onNotFound(notFound);
+server.begin();&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Bu kod bloğunda sırasıyla:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt;Eğer sayfa bulunamadıysa onNotFound metodu çalıştırılacak.
+&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt;begin metodu web serverı başlatır.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;#include &amp;lt;WiFi.h&amp;gt;
+#include &amp;lt;AsyncTCP.h&amp;gt;
+#include &amp;lt;ESPAsyncWebServer.h&amp;gt;
+
+
+const char* ssid = &amp;quot;Ag Adi&amp;quot;;
+const char* password = &amp;quot;Ag Parolasi&amp;quot;;
+
+const int led = 2;
+
+const char index_html[] PROGMEM = R&amp;quot;rawliteral(&amp;lt;!DOCTYPE Html&amp;gt;
+
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+    &amp;lt;title&amp;gt; Web Sayfasi &amp;lt;/title&amp;gt;
+    &amp;lt;style&amp;gt;
+        body {
+            margin: 0;
+            text-align: center;
+        }
+        
+        button {
+            width: 200px;
+            height: 100px;
+            border-radius: 3px;
+        }
+    &amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+    &amp;lt;h2&amp;gt;Esp32 İle Asenkron Web Server&amp;lt;/h2&amp;gt;
+    &amp;lt;br&amp;gt;
+    &amp;lt;button style=&amp;quot;background-color: #77d772;&amp;quot; id=&amp;quot;ac&amp;quot; onclick=&amp;quot;myfunction(&amp;#39;ac&amp;#39;)&amp;quot;&amp;gt;&amp;lt;b&amp;gt;Aç&amp;lt;/b&amp;gt;&amp;lt;/button&amp;gt;
+    &amp;lt;button style=&amp;quot;background-color: red;&amp;quot; id=&amp;quot;kapat&amp;quot; onclick=&amp;quot;myfunction(&amp;#39;kapat&amp;#39;)&amp;quot;&amp;gt;&amp;lt;b&amp;gt;Kapat&amp;lt;/b&amp;gt;&amp;lt;/button&amp;gt;
+    &amp;lt;h4&amp;gt;Led Durum:
+        &amp;lt;h4 id=&amp;quot;leddurum&amp;quot;&amp;gt;Led Kapalı&amp;lt;/h4&amp;gt;
+    &amp;lt;/h4&amp;gt;
+    &amp;lt;script&amp;gt;
+        function myfunction(value) {
+            var xhr = new XMLHttpRequest();
+            if (value == &amp;#39;ac&amp;#39;) {
+                document.getElementById(&amp;quot;leddurum&amp;quot;).innerHTML = &amp;quot;Led Açık&amp;quot;;
+                xhr.open(&amp;quot;GET&amp;quot;, &amp;quot;/ac&amp;quot;, true);
+                xhr.send();
+            } else {
+                document.getElementById(&amp;quot;leddurum&amp;quot;).innerHTML = &amp;quot;Led Kapalı&amp;quot;;
+                xhr.open(&amp;quot;GET&amp;quot;, &amp;quot;/kapat&amp;quot;, true);
+                xhr.send();
+            }
+        }
+    &amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/Html&amp;gt;)rawliteral&amp;quot;;
+
+
+
+void notFound(AsyncWebServerRequest *request) {
+  request-&amp;gt;send(404, &amp;quot;text/plain&amp;quot;, &amp;quot;Sayfa Bulunamdadi&amp;quot;);
+}
+
+AsyncWebServer server(80);
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  if (WiFi.waitForConnectResult() != WL_CONNECTED) {
+    Serial.println(&amp;quot;Wifi agina Baglanmadi!&amp;quot;);
+    return;
+  }
+  Serial.println();
+  Serial.print(&amp;quot;ESP IP Address: http://&amp;quot;);
+  Serial.println(WiFi.localIP());
+  
+  pinMode(led, OUTPUT);
+  digitalWrite(led, LOW);
+  
+  server.on(&amp;quot;/&amp;quot;, HTTP_GET, [](AsyncWebServerRequest *request){
+    request-&amp;gt;send_P(200, &amp;quot;text/html&amp;quot;, index_html);
+  });
+
+  
+  server.on(&amp;quot;/ac&amp;quot;, HTTP_GET, [] (AsyncWebServerRequest *request) {
+    digitalWrite(output, HIGH);
+    request-&amp;gt;send(200, &amp;quot;text/plain&amp;quot;, &amp;quot;ac sinyali gonderildi.&amp;quot;);
+  });
+
+  
+  server.on(&amp;quot;/kapat&amp;quot;, HTTP_GET, [] (AsyncWebServerRequest *request) {
+    digitalWrite(output, LOW);
+    request-&amp;gt;send(200, &amp;quot;text/plain&amp;quot;, &amp;quot;kapat sinyali gönderildi.&amp;quot;);
+  });
+  
+  server.onNotFound(notFound);
+  server.begin();
+}
+
+void loop() {
+ 
+}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </content>
  </entry>
  
  <entry>
-   <title>Staticman comments on a Jekyll site</title>
-   <link href="http://localhost:4000/2019/07/23/staticman-comments-on-a-jekyll-site"/>
-   <updated>2019-07-23T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2019/07/23/staticman-comments-on-a-jekyll-site</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
+   <title>NodeMCU Ve Nokia 5110 Ekranı İle Covid-19 Monitörü Projesi</title>
+   <link href="http://localhost:4000/2020/05/19/nodemcu-esp8266-ve-nokia-5110-i%CC%87le-covid19-m%C3%B6nit%C3%B6r%C3%BC-yap%C4%B1m%C4%B1"/>
+   <updated>2020-05-19T23:15:02+03:00</updated>
+   <id>http://localhost:4000/2020/05/19/nodeMCU(ESP8266)-Ve-Nokia-5110-İle-Covid19-Mönitörü-Yapımı</id>
+   <content type="html">&lt;p&gt;Bu projede 1.6” Nokia 5110 ekranı ile nodeMCU kartını kullanarak anlık ülkemizdeki corona virüs istatiklerini gösterebileceğimiz bir monitör yaptım. Anlık olarak ekran üzerinde; toplam vaka sayısı, vefat eden kişi ve iyileşen hasta sayılarını vermektedir.&lt;/p&gt;
 
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Projeye başlamadan önce proje içerisinde veri transferi yapmamıza yarayacak ThingSpeak sitesinden biraz bahsetmek istiyorum. &lt;a href=&quot;https://thingspeak.com/&quot;&gt;ThingSpeak&lt;/a&gt; ücretsiz olarak hem arduino sensörleri ile okuduğunuz değerleri yazmaya, hem de yazdığınız değerleri telefonunuzda, bilgisayarınızda veya diğer akıllı cihazlarınızda anlık görebilmenize ve okuyabilmenize imkan tanıyan bir platform. API için kanal oluşturuyorsunuz ve sadece sizin bildiğiniz şifreler ile (API key) verilerinizi grafik üzerinde takip edebiliyorsunuz.Sadece veri gönderip okumaktan farklı olarak internetteki bir veriyi API ile IOT cihazlarınıza gönderebilirsiniz. Bizim bu projede yaptığımız da tam olarak bu.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
+&lt;h3 id=&quot;malzeme-listesi&quot;&gt;Malzeme Listesi&lt;/h3&gt;
 
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt;NodeMCU(ESP8266) Kartı&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;font-size:18px&quot;&gt;Nokia 5110 ekranı&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
+&lt;h3 id=&quot;covid-19-verilerini-çekme&quot;&gt;COVID-19 Verilerini Çekme&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Worldometer sitesinden COVID-19 verisini çekeceğimiz ülkenin sayfasına gitmemiz gerekiyor. Bunun için &lt;a href=&quot;https://www.worldometers.info/coronavirus/&quot;&gt;Worldometer&lt;/a&gt; sitesine gidiyoruz.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1guj430F_Nb7h785DPZEanxTvHflQ-eBT&quot; alt=&quot;Worldometer&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Siteye girdikten sonra sitenin alt kısmında bulunan tabloda verisini çekmek istediğimiz ülkenin linkine tıklyoruz.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p class=&quot;img-responsive&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=19K-hrviACswPIWBRbzcdphvZafJpXjUm&quot; alt=&quot;Worldometer&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Karşımıza gelen sayfada klavyenizden “F12” tuşuna basarak veya mouse’nuzla sağ tık atıp inceleye basarak sayfa kaynağının görüntülendiği ekranı açıyoruz.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p class=&quot;img-responsive&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1Pmy21HS2mZHAZDgyAM_6LGFBoe1u6UJS&quot; alt=&quot;Worldometer&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Bu kısımda mavi alan içerisinde gösterilen kısma geliyoruz ve mouse ile sağ tık atıp /Copy/Copy XPath seçeneğine tıklıyoruz. Bu kopyalanan veriyi ThinkSpeak ekranında kullanacağız.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;thingspeak-ayarları&quot;&gt;ThingSpeak Ayarları&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1G85QbMpMbS_mFTT3uoJ336xzuQDUBquY&quot; alt=&quot;Worldometer&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Projenin başında bahsettiğim gibi projemizde veri transferini sağlayacak olan ThingSpeak sitesine kayıt olmamız gerekiyor. Eğer kayıt olduysanız site anasayfasında üstte bulunan Apps butonuna gelin ve altta çıkan seçeneklerden ThingHTTP’ye tıklayın.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1t6lvGaHPbXU-ZXO5avTyAZ1dD1Eb3-et&quot; alt=&quot;Worldometer&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;ThingHTTP’ye tıkladıktan sonra karşımıza çıkan sayfada NewThingHTTP butonuna basıyoruz.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=19k5UP3FxbW2rNiuGdEFC5_oK6VMDhKfx&quot; alt=&quot;Worldometer&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Karşımıza gelen ekranda Name yazan kısma istediğinizi yazabilirsiniz. Ben Türkiye’deki COVID-19 verilerini çekmek istediğim için “Turkey” yazdım. Parse String kısmına kopyaladığımız XPath’i yapıştırıyoruz ve “Save ThingHTTP” butonuna basıyoruz.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p class=&quot;img-responsive&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1y4hhlLZ0EvMTGCDuykayWZeYk9kji3ZU&quot; alt=&quot;image-title-here&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Kırmızı dikdörtgen ile işaretlenmiş alan içerisindeki API’yı kopyalıyoruz.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p class=&quot;img-responsive&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1LKcq7rvfNLO-5H7JSJg6qAzP8AE6msZ4&quot; alt=&quot;image-title-here&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Kopyaladığımız API’yı yukarıdaki fotoğraftaki kırmızı alan içerisindeki api_key kısmına yapıştırıyoruz. Bu arada ağ adı ve ağ parolası yazan kısma bulunduğunuz ortamdaki wifi ağının adını ve parolasını girmeyi unutmayınız.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;proje-kaynak-kodu&quot;&gt;Proje Kaynak Kodu&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;#include &amp;lt;graphicsLCD.h&amp;gt;
+#include &amp;lt;ESP8266WiFi.h&amp;gt;                                                  
+#include &amp;lt;ESP8266HTTPClient.h&amp;gt;
+                                                                       
+const char* ssid = &amp;quot;AğAdı&amp;quot;;                                        
+const char* password =  &amp;quot;AğParolası&amp;quot;; 
+const char* host = &amp;quot;api.thingspeak.com&amp;quot;;                                     
+const int httpPortRead = 80;                                           
+
+#define lcd_RST_pin D8
+#define lcd_CS_pin D7
+#define lcd_DIN_pin D5
+#define lcd_CLK_pin D4
+
+graphicsLCD lcd(lcd_RST_pin,lcd_CS_pin,lcd_DIN_pin,lcd_CLK_pin);
+
+const char* url1 = &amp;quot;/apps/thinghttp/send_request?api_key=Api key yapıştıracağınız kısım&amp;quot;;
+ 
+String toplam_vaka,vefat_eden,iyilesen,Data_Raw,Data_Raw_1,Data_Raw_2,Data_Raw_3;  
+int indx;
+WiFiClient client;                                                        
+HTTPClient http; 
+
+
+String _parse(String value)
+{
+  String kelime ;
+  for(int i=0; i &amp;lt; value.length();i++)
+  {
+    if(value.substring(i,i+1) != &amp;quot;,&amp;quot;)
+      kelime += value.substring(i,i+1);  
+  }
+  return kelime;
+}
+
+void setup() {
+  Serial.begin(9600);
+  lcd.begin();  
+  lcd.clear();                                                         
+  WiFi.disconnect();                                                
+  delay(1000);                                                           
+  WiFi.begin(ssid, password);                                               
+  Serial.println(&amp;quot;Wifi agina baglandı.&amp;quot;);                                       
+  Serial.println(WiFi.localIP());
+}  
+
+ void loop()                                                                      
+{
+    if( http.begin(host,httpPortRead,url1))                                              
+      {
+        int httpCode = http.GET();                                                                  
+        if (httpCode &amp;gt; 0)                                                              
+        {
+          if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY) 
+            {   
+              lcd.line(1);
+              lcd.column(36);
+              lcd.print(&amp;quot;Turkey&amp;quot;);
+              Data_Raw = http.getString();  
+              
+              Data_Raw_1 = Data_Raw;                                  
+              indx = Data_Raw_1.indexOf(&amp;quot;&amp;gt;&amp;quot;);                                                      
+              Data_Raw_1.remove(0,indx+1);                        
+              indx = Data_Raw_1.indexOf(&amp;quot;&amp;lt;&amp;quot;);                                                     
+              Data_Raw_1.remove(indx,Data_Raw_1.length());                        
+              toplam_vaka=Data_Raw_1;
+              toplam_vaka = _parse(toplam_vaka); 
+              lcd.line(4);
+              lcd.print(&amp;quot;Toplam vaka: &amp;quot;);
+              lcd.print(toplam_vaka.toInt()); 
+              lcd.print(&amp;quot;k&amp;quot;);
+
+
+              Data_Raw_2=Data_Raw;
+              indx = Data_Raw_2.indexOf(&amp;quot;&amp;lt;span&amp;gt;&amp;quot;);
+              Data_Raw_2.remove(0,indx+6);
+              Data_Raw_3=Data_Raw_2;
+              indx = Data_Raw_2.indexOf(&amp;quot;&amp;lt;/span&amp;gt;&amp;quot;);
+              Data_Raw_2.remove(indx,Data_Raw_2.length());
+              vefat_eden=Data_Raw_2;
+              vefat_eden = _parse(vefat_eden);
+              lcd.line(5);
+              lcd.print(&amp;quot;Vefat eden: &amp;quot;);
+              lcd.print(vefat_eden.toInt());  
+  
+
+              indx = Data_Raw_3.indexOf(&amp;quot;&amp;lt;span&amp;gt;&amp;quot;);
+              Data_Raw_3.remove(0,indx+6);
+              indx = Data_Raw_3.indexOf(&amp;quot;&amp;lt;&amp;quot;);
+              Data_Raw_3.remove(indx,Data_Raw_3.length());
+              
+              iyilesen=Data_Raw_3;
+              iyilesen = _parse(iyilesen);
+              lcd.line(6);
+              lcd.print(&amp;quot;Iyilesen: &amp;quot;);
+              lcd.print(iyilesen.toInt());  
+                                                                         
+            }
+        }
+        else 
+        {
+          Serial.printf(&amp;quot;[HTTP] istegi alinamadi, Hata: %s\n&amp;quot;, http.errorToString(httpCode).c_str());
+        }
+        http.end();                                                                 
+      } 
+      else 
+      {
+        Serial.printf(&amp;quot;[HTTP} baglanılamıyor.\n&amp;quot;);
+      }
+    delay(5000);
+
+    while (WiFi.status() != WL_CONNECTED)                                      
+      { 
+        WiFi.disconnect();                                                        
+        delay(1000);                                                             
+        WiFi.begin(ssid, password);                                              
+        Serial.println(&amp;quot;Wifi agına tekrar baglaniyor.&amp;quot;);       
+        delay(10000);                                                             
+      }
+} 
+String prs(String value)
+{
+  for(int i=0; value.length();i++)
+  {
+    Serial.println(value.substring(i,i));
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;fritzing-şeması&quot;&gt;Fritzing Şeması&lt;/h3&gt;
+
+&lt;p class=&quot;img-responsive&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1r8PjmfXzo9z4W8N3CiNr9mqrVJJ05_qO&quot; alt=&quot;image-title-here&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;sonuç&quot;&gt;Sonuç&lt;/h3&gt;
+
+&lt;p class=&quot;img-responsive&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1pOMffX0ygMv5w6Fm2dVfhKiE38HyHZ32&quot; alt=&quot;image-title-here&quot; /&gt;&lt;/p&gt;
+
 </content>
  </entry>
  
  <entry>
-   <title>Adding HTTP response headers to a Netlify static website</title>
-   <link href="http://localhost:4000/2019/05/23/adding-http-response-headers-to-a-netlify-static-website"/>
-   <updated>2019-05-23T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2019/05/23/adding-http-response-headers-to-a-netlify-static-website</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Syntax highlight with Rouge in Jekyll</title>
-   <link href="http://localhost:4000/2018/12/23/syntax-highlight-with-rouge-in-jekyll"/>
-   <updated>2018-12-23T00:00:00+02:00</updated>
-   <id>http://localhost:4000/2018/12/23/syntax-highlight-with-rouge-in-jekyll</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Page specific assets in Jekyll</title>
-   <link href="http://localhost:4000/2018/11/12/page-specific-assets-in-jekyll"/>
-   <updated>2018-11-12T00:00:00+02:00</updated>
-   <id>http://localhost:4000/2018/11/12/page-specific-assets-in-jekyll</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.s&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Jekyll reading time without plugins</title>
-   <link href="http://localhost:4000/2018/09/20/jekyll-reading-time-without-plugins"/>
-   <updated>2018-09-20T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2018/09/20/jekyll-reading-time-without-plugins</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>How to add an RSS feed to a Jekyll blog</title>
-   <link href="http://localhost:4000/2018/09/11/how-to-add-an-rss-feed-to-a-jekyll-blog"/>
-   <updated>2018-09-11T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2018/09/11/how-to-add-an-rss-feed-to-a-jekyll-blog</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Top plugins for Wordpress websites</title>
-   <link href="http://localhost:4000/2018/08/18/top-plugins-for-wordpress-websites"/>
-   <updated>2018-08-18T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2018/08/18/top-plugins-for-wordpress-websites</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Install Jekyll on Mac OS</title>
-   <link href="http://localhost:4000/2018/06/14/install-jekyll-on-mac-os"/>
-   <updated>2018-06-14T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2018/06/14/install-jekyll-on-mac-os</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Applying the active class for the current page in Jekyll</title>
-   <link href="http://localhost:4000/2018/06/07/applying-the-active-class-for-the-current-page-in-jekyll"/>
-   <updated>2018-06-07T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2018/06/07/applying-the-active-class-for-the-current-page-in-jekyll</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Displaying GitHub Gists in Jekyll sites</title>
-   <link href="http://localhost:4000/2018/05/13/displaying-github-gists-in-jekyll-sites"/>
-   <updated>2018-05-13T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2018/05/13/displaying-github-gists-in-jekyll-sites</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Disable Jekyll's default syntax highlighter Rouge</title>
-   <link href="http://localhost:4000/2018/02/05/disable-jekylls-default-syntax-highlighter-rouge"/>
-   <updated>2018-02-05T00:00:00+02:00</updated>
-   <id>http://localhost:4000/2018/02/05/disable-jekylls-default-syntax-highlighter-rouge</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Image caption in Jekyll</title>
-   <link href="http://localhost:4000/2018/02/03/image-captions-in-jekyll"/>
-   <updated>2018-02-03T00:00:00+02:00</updated>
-   <id>http://localhost:4000/2018/02/03/image-captions-in-jekyll</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-
-</content>
- </entry>
- 
- <entry>
-   <title>Showing the word count in Jekyll</title>
-   <link href="http://localhost:4000/2018/01/17/showing-the-word-count"/>
-   <updated>2018-01-17T00:00:00+02:00</updated>
-   <id>http://localhost:4000/2018/01/17/showing-the-word-count</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Custom 404 page for Jekyll on Github pages</title>
-   <link href="http://localhost:4000/2017/11/15/custom-404-page-for-jekyll-on-github-pages"/>
-   <updated>2017-11-15T00:00:00+02:00</updated>
-   <id>http://localhost:4000/2017/11/15/custom-404-page-for-jekyll-on-github-pages</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Redirect Jekyll URLs</title>
-   <link href="http://localhost:4000/2017/11/10/redirect-jekyll-urls"/>
-   <updated>2017-11-10T00:00:00+02:00</updated>
-   <id>http://localhost:4000/2017/11/10/redirect-jekyll-urls</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Creating navigation menu in Jekyll</title>
-   <link href="http://localhost:4000/2017/01/03/creating-navigation-menu-in-jekyll"/>
-   <updated>2017-01-03T00:00:00+02:00</updated>
-   <id>http://localhost:4000/2017/01/03/creating-navigation-menu-in-jekyll</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Structured Data markup validation and testing tools</title>
-   <link href="http://localhost:4000/2016/12/11/structured-data-markup-validation-and-testing-tools"/>
-   <updated>2016-12-11T00:00:00+02:00</updated>
-   <id>http://localhost:4000/2016/12/11/structured-data-markup-validation-and-testing-tools</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Top monospaced fonts for coding</title>
-   <link href="http://localhost:4000/2016/11/27/top-monospaced-fonts-for-coding"/>
-   <updated>2016-11-27T00:00:00+02:00</updated>
-   <id>http://localhost:4000/2016/11/27/top-monospaced-fonts-for-coding</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Places where you can learn how to code</title>
-   <link href="http://localhost:4000/2015/07/31/places-where-you-can-learn-how-to-code"/>
-   <updated>2015-07-31T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2015/07/31/places-where-you-can-learn-how-to-code</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>CSS hacks you may not know</title>
-   <link href="http://localhost:4000/2014/05/12/css-hacks-you-may-not-know"/>
-   <updated>2014-05-12T00:00:00+03:00</updated>
-   <id>http://localhost:4000/2014/05/12/css-hacks-you-may-not-know</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;.♫ { background: #222; color: #FFF; } 
-.ಠ_ಠ { background: #ccc; color: #fff; }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;a { text-decoration: overline red wavy; }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.&lt;/p&gt;
-
-&lt;p&gt;Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.&lt;/p&gt;
-
-&lt;p&gt;VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.&lt;/p&gt;
-
-&lt;p&gt;Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.&lt;/p&gt;
-
-&lt;p&gt;Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.&lt;/p&gt;
-</content>
+   <title>Blog Açıldı</title>
+   <link href="http://localhost:4000/2020/05/13/blog-a%C3%A7%C4%B1ld%C4%B1"/>
+   <updated>2020-05-13T23:15:02+03:00</updated>
+   <id>http://localhost:4000/2020/05/13/Blog Açıldı</id>
+   <content type="html"></content>
  </entry>
  
 
