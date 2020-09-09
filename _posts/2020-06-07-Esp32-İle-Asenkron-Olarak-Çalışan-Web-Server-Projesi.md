@@ -13,7 +13,7 @@ image:
 
 ## Esp32 Kartının Kurulumu
 
-![Asenkron]( https://drive.google.com/file/d/1RBA39QFpLErzHYOGzV23YcPVw0rxgIsN/view )
+![AsenkronServer]( https://drive.google.com/file/d/1RBA39QFpLErzHYOGzV23YcPVw0rxgIsN/view?usp=sharing )
 
 Bilgisayarınızda halihazırda kurulu bir Arduino IDE'si olduğunu varsayıyorum. Ancak projede kullanacağımız ESP32, IDE'nin standart kurulumunda gelmiyor o yüzden bazı ek işlemler yapmamız gerekecek.
 
