@@ -8,24 +8,24 @@ date:   2020-06-07 16:15:00
 comments: true
 share: true
 image: 
-  feature: https://drive.google.com/uc?id=1RBA39QFpLErzHYOGzV23YcPVw0rxgIsN
+  feature: 
 ---
 
-## Esp32 Kartının Kurulumu
+![AsenkronServer](https://drive.google.com/uc?export=view&id=1RBA39QFpLErzHYOGzV23YcPVw0rxgIsN)
 
-![AsenkronServer]( https://drive.google.com/file/d/1RBA39QFpLErzHYOGzV23YcPVw0rxgIsN/view?usp=sharing )
+## Esp32 Kartının Kurulumu
 
 Bilgisayarınızda halihazırda kurulu bir Arduino IDE'si olduğunu varsayıyorum. Ancak projede kullanacağımız ESP32, IDE'nin standart kurulumunda gelmiyor o yüzden bazı ek işlemler yapmamız gerekecek.
 
 Arduino IDE'sini açıp
-<span style="background-color:#e5eff5 padding:5px;border-radius:5px">Dosya>Tercihler</span> menüsünden <span style="background-color:#e5eff5; padding:5px; border-radius:5px;">Ek Devre Kartları Yöneticisi URL'leri</span> kısmına aşağıdaki adresi ekleyelim:
-<span style="background-color:#e5eff5;padding:5px">https://dl.espressif.com/dl/package_esp32_index.json</span>
+<b>Dosya>Tercihler</b> menüsünden <b>Ek Devre Kartları Yöneticisi URL'leri</b> kısmına aşağıdaki adresi ekleyelim:
+<b>https://dl.espressif.com/dl/package_esp32_index.json</b>
 
-Daha sonra <span style="background-color:#e5eff5;padding:5px; border-radius:5px;">Araçlar>Kart>Kart Yöneticisi</span> kısmından Esp32 kartını bulup kuralım.
+Daha sonra <b>Araçlar>Kart>Kart Yöneticisi</b> kısmından Esp32 kartını bulup kuralım.
 
 
 
-![Kart Yöneticisi Penceresi](https://drive.google.com/uc?id=1_UJ_4ufjx3jU0qw4xVHieJplmRmiBgTe )
+![Kart Yöneticisi Penceresi](https://drive.google.com/uc?id=1_UJ_4ufjx3jU0qw4xVHieJplmRmiBgTe)
 
 <br />
 

@@ -4,7 +4,7 @@
  <title>Vankenobi</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-09-09T16:48:07+03:00</updated>
+ <updated>2020-09-09T17:32:19+03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -17,17 +17,17 @@
    <link href="http://localhost:4000/2020/06/07/esp32-i%CC%87le-asenkron-olarak-%C3%A7al%C4%B1%C5%9Fan-web-server-projesi"/>
    <updated>2020-06-07T19:15:00+03:00</updated>
    <id>http://localhost:4000/2020/06/07/Esp32-İle-Asenkron-Olarak-Çalışan-Web-Server-Projesi</id>
-   <content type="html">&lt;h2 id=&quot;esp32-kartının-kurulumu&quot;&gt;Esp32 Kartının Kurulumu&lt;/h2&gt;
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1RBA39QFpLErzHYOGzV23YcPVw0rxgIsN&quot; alt=&quot;AsenkronServer&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://drive.google.com/file/d/1RBA39QFpLErzHYOGzV23YcPVw0rxgIsN/view?usp=sharing&quot; alt=&quot;AsenkronServer&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;esp32-kartının-kurulumu&quot;&gt;Esp32 Kartının Kurulumu&lt;/h2&gt;
 
 &lt;p&gt;Bilgisayarınızda halihazırda kurulu bir Arduino IDE’si olduğunu varsayıyorum. Ancak projede kullanacağımız ESP32, IDE’nin standart kurulumunda gelmiyor o yüzden bazı ek işlemler yapmamız gerekecek.&lt;/p&gt;
 
 &lt;p&gt;Arduino IDE’sini açıp
-&lt;span style=&quot;background-color:#e5eff5 padding:5px;border-radius:5px&quot;&gt;Dosya&amp;gt;Tercihler&lt;/span&gt; menüsünden &lt;span style=&quot;background-color:#e5eff5; padding:5px; border-radius:5px;&quot;&gt;Ek Devre Kartları Yöneticisi URL’leri&lt;/span&gt; kısmına aşağıdaki adresi ekleyelim:
-&lt;span style=&quot;background-color:#e5eff5;padding:5px&quot;&gt;https://dl.espressif.com/dl/package_esp32_index.json&lt;/span&gt;&lt;/p&gt;
+&lt;b&gt;Dosya&amp;gt;Tercihler&lt;/b&gt; menüsünden &lt;b&gt;Ek Devre Kartları Yöneticisi URL’leri&lt;/b&gt; kısmına aşağıdaki adresi ekleyelim:
+&lt;b&gt;https://dl.espressif.com/dl/package_esp32_index.json&lt;/b&gt;&lt;/p&gt;
 
-&lt;p&gt;Daha sonra &lt;span style=&quot;background-color:#e5eff5;padding:5px; border-radius:5px;&quot;&gt;Araçlar&amp;gt;Kart&amp;gt;Kart Yöneticisi&lt;/span&gt; kısmından Esp32 kartını bulup kuralım.&lt;/p&gt;
+&lt;p&gt;Daha sonra &lt;b&gt;Araçlar&amp;gt;Kart&amp;gt;Kart Yöneticisi&lt;/b&gt; kısmından Esp32 kartını bulup kuralım.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1_UJ_4ufjx3jU0qw4xVHieJplmRmiBgTe&quot; alt=&quot;Kart Yöneticisi Penceresi&quot; /&gt;&lt;/p&gt;
 
@@ -277,7 +277,9 @@ void loop() {
    <link href="http://localhost:4000/2020/05/19/nodemcu-esp8266-ve-nokia-5110-i%CC%87le-covid19-m%C3%B6nit%C3%B6r%C3%BC-yap%C4%B1m%C4%B1"/>
    <updated>2020-05-19T23:15:02+03:00</updated>
    <id>http://localhost:4000/2020/05/19/nodeMCU(ESP8266)-Ve-Nokia-5110-İle-Covid19-Mönitörü-Yapımı</id>
-   <content type="html">&lt;p&gt;Bu projede 1.6” Nokia 5110 ekranı ile nodeMCU kartını kullanarak anlık ülkemizdeki corona virüs istatiklerini gösterebileceğimiz bir monitör yaptım. Anlık olarak ekran üzerinde; toplam vaka sayısı, vefat eden kişi ve iyileşen hasta sayılarını vermektedir.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1ws7zkULNMkbVfTmeUVNx6AGVo1Wct5z7&quot; alt=&quot;Tittle-Photo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu projede 1.6” Nokia 5110 ekranı ile nodeMCU kartını kullanarak anlık ülkemizdeki corona virüs istatiklerini gösterebileceğimiz bir monitör yaptım. Anlık olarak ekran üzerinde; toplam vaka sayısı, vefat eden kişi ve iyileşen hasta sayılarını vermektedir.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Projeye başlamadan önce proje içerisinde veri transferi yapmamıza yarayacak ThingSpeak sitesinden biraz bahsetmek istiyorum. &lt;a href=&quot;https://thingspeak.com/&quot;&gt;ThingSpeak&lt;/a&gt; ücretsiz olarak hem arduino sensörleri ile okuduğunuz değerleri yazmaya, hem de yazdığınız değerleri telefonunuzda, bilgisayarınızda veya diğer akıllı cihazlarınızda anlık görebilmenize ve okuyabilmenize imkan tanıyan bir platform. API için kanal oluşturuyorsunuz ve sadece sizin bildiğiniz şifreler ile (API key) verilerinizi grafik üzerinde takip edebiliyorsunuz.Sadece veri gönderip okumaktan farklı olarak internetteki bir veriyi API ile IOT cihazlarınıza gönderebilirsiniz. Bizim bu projede yaptığımız da tam olarak bu.&lt;/p&gt;

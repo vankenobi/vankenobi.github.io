@@ -2,16 +2,16 @@
 layout: post
 title: "NodeMCU Ve Nokia 5110 Ekranı İle Covid-19 Monitörü Projesi"
 excerpt: ""
-tags: [NodeMCU,Esp8266,IOT,COVID-19,Corona Virüs,Worldometer,ThingSpeak,Nokia5110,Iot,InternetOfThings,Nesnelerin İnterneti]
+tags: [NodeMCU,Esp8266,COVID-19,Corona,Worldometer,ThingSpeak,Nokia5110]
 categories: [nodeMCU]
 share: true
 date:   2020-05-19 20:15:02
 comments: true
 image: 
-  feature: https://drive.google.com/uc?id=1ws7zkULNMkbVfTmeUVNx6AGVo1Wct5z7
+  feature: 
 ---
 
-
+![Tittle-Photo](https://drive.google.com/uc?id=1ws7zkULNMkbVfTmeUVNx6AGVo1Wct5z7)
 
 Bu projede 1.6" Nokia 5110 ekranı ile nodeMCU kartını kullanarak anlık ülkemizdeki corona virüs istatiklerini gösterebileceğimiz bir monitör yaptım. Anlık olarak ekran üzerinde; toplam vaka sayısı, vefat eden kişi ve iyileşen hasta sayılarını vermektedir.
 
