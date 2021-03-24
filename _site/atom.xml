@@ -4,13 +4,315 @@
  <title>Vankenobi</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-09-09T17:32:19+03:00</updated>
+ <updated>2021-03-25T01:01:02+03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>3D Printer İle Iron Man MK3 Helmet(Kask) Yapımı</title>
+   <link href="http://localhost:4000/2021/03/24/ironmanmk3"/>
+   <updated>2021-03-24T14:39:00+03:00</updated>
+   <id>http://localhost:4000/2021/03/24/IronManMk3</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1ua0I6wyMKHyVWnALowyXIKjxqIK_PqD4&quot; alt=&quot;AsenkronServer&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;proje-hakkında&quot;&gt;Proje Hakkında&lt;/h1&gt;
+
+&lt;p&gt;Herkese merhabalar, bu blog yazısındaki projede iron man’in açılıp kapanabilen 1:1 oranındaki kaskını 3d printer ile çıkarıp belli işlemlerden geçirerek nasıl yaptığımdan bahsedeceğim.&lt;/p&gt;
+
+&lt;h3 id=&quot;gerekli-malzemeler&quot;&gt;Gerekli Malzemeler&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;3 Boyutlu Yazıcı (Benim kullandığım 3 boyutlu yazıcı Ender 3 Pro)&lt;/li&gt;
+  &lt;li&gt;Çelik Macun (Nalburlarda rahatlıkla bulabilirsiniz)&lt;/li&gt;
+  &lt;li&gt;Hızlı Yapıştırıcı (Parçaları birbirine birleştirmek için)&lt;/li&gt;
+  &lt;li&gt;80 kum 100 kum zımpara&lt;/li&gt;
+  &lt;li&gt;Filament (kullanılan filamentlerin renklerinin bir önemi yok. Sonuçta boyanacaklar)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;projeye-giriş&quot;&gt;Projeye Giriş&lt;/h1&gt;
+
+&lt;p&gt;İlk olarak parçaları 3d printerdan çıkarmamız gerekiyor. Kaskın tasarımını thingiverse sitesinde aldım sizler de kaskın .stl dosyalarına &lt;a href=&quot;https://www.thingiverse.com/thing:260152&quot;&gt;buradan&lt;/a&gt; ulaşabilirsiniz. Bu arada &lt;a href=&quot;https://www.thingiverse.com/&quot;&gt;thingiverse&lt;/a&gt; sitesi hayatınızı kolaylaştıracak birçok tasarımı bulabileceğiniz ve bu tasarımların kaynak dosyalarını indirip 3 boyutlu yazıcınızda çıkarabileceğiniz bir websitesidir.Sizler de siteye üye olup kendi çizimlerinizi yükleyebilirsiniz.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-adım-parçaların-basılması&quot;&gt;1. Adım Parçaların Basılması&lt;/h2&gt;
+
+&lt;p&gt;Bütün parçaları olabildiğince risksiz (yazıcının hata yapıp baskının yarıda kalmaması durumları) basmaya çalıştım. Parçaları baskıya vermeden önce tablaya herhangi bir kimyasal sürmeden ancak baskının yüzeye güzel bir şekilde yapışması ve yazıcının baskı sırasında parçayı düşürmemesi için cura dilimleyici programında yapı levhası yapıştırması başlığı altındaki kenar seçeneğini seçtim. Katman yüksekliği olarak ise katman boşluklarına macun atacağım için 0.3 mm katman yüksekliğinde bastım. Bazı parçalarda destek varken bazı parçalarda destek yok zaten bunları fotoğraflarda göreceksiniz.&lt;/p&gt;
+
+&lt;h3 id=&quot;bütün-baskılar-için-cura-ayarları&quot;&gt;Bütün baskılar için cura ayarları&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;0.3 mm katman yüksekliği&lt;/li&gt;
+  &lt;li&gt;Destek var (kulaklar hariç)&lt;/li&gt;
+  &lt;li&gt;%25 Dolgu&lt;/li&gt;
+  &lt;li&gt;1 mm duvar kalınlığı&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Maske Alt Parçası&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Maske Üst Parçası&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1v7OnLypmbZ8aGPBzunV6-M_M6DYTuMLI&quot; alt=&quot;Maske Alt Parça&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1v4YyMv62ntNMoXzNpmu1FUDQ7X8aN0TL&quot; alt=&quot;Maske üst Parça&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Çene&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Üst&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1thCfbY2o0B4e5Q4pG9ypRqGwXAvceaYT&quot; alt=&quot;Çene&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1tKi8EJEK51zO-9cZUHjS-4krEiN7t_TO&quot; alt=&quot;Üst&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Sağ Kulak&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Sol Kulak&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1tGBSlzJQ1DrYpdntPrw5ZMu6rb-9t4uM&quot; alt=&quot;Sağ kısım&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1t01FY-aNl-lOpeXPyUR2RH1ivokjS2Ro&quot; alt=&quot;Sol kısım&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;arka-kısım&quot;&gt;Arka Kısım&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1vIm3lVcCj2JLBWYWRCEaptcQeoy40bC5&quot; alt=&quot;Sağ kısım&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;parçaların-tamamının-bant-i̇le-bir-araya-getirilmiş-hali&quot;&gt;Parçaların Tamamının Bant İle Bir Araya Getirilmiş Hali&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1r8bVSy3bfr89_UFGfZZbr1NhuNI6KLGH&quot; alt=&quot;Parçaların Tamamının Bant İle Bir Araya Getirilmiş Hali&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1sdB0Z3GofxLXxiiKNC0OFVaxTniwaGjW&quot; alt=&quot;Parçaların Tamamının Bant İle Bir Araya Getirilmiş Hali 2&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-adım-macunlama-ve-zımparalama&quot;&gt;2. Adım Macunlama Ve Zımparalama&lt;/h2&gt;
+
+&lt;p&gt;Bu aşamada macunlama ve zımparalama hakkında biraz edindiğim tecrübelerimden bahsedeceğim.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Macun çekerken macun çektiğiniz baskının detaylarını kaybetmemeye özen gösterin. Ben bu işlemi ilk defa yaptığım için birkaç detayı kaybettim. Baskının detay kısımlarına macun sürmeyin&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Macun yaparken benim tecrübe ettiğim ve aslında çok dikkat edilmesi gereken bir diğer önemli konu ise macunu baskı yüzeyine yedirerek sürmeniz ve yüzeye ne az ne çok macun sürmeniz. Eğer fazla macun sürerseniz zımpara işleminin sonunda kol kasınızın geliştiğini fark edeceksiniz. :) Eğer çok az macun sürerseniz zımpara işleminde baskı yüzeyine zarar verdiğinizi gözlemleyeceksiniz.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Zımpara yaparken olabildiğince zımpara yaptığınız yüzeyi durarak izleyin. Çünkü gereğinden fazla yüzeye yaklaşmamanız yüzeyi koruyacaktır. Bu hususta diğer bir önerim ise yüzeye yaklaştıkça daha ince bir zımpara kullanmanız.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Zımparayı bir tahta parçasına sararak zımparalama işlemini yaparsanız daha rahat çalıştığınızı, zımparanın genel formunu koruduğunuzu ve olası zımpara üzerindeki çatlakların oluşmasını önlediğinizi gözlemleyeceksiniz.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Macun çekilmiş hali&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Zımpara yapılmış hali&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1o5VyOfnAKkUQfi_KYhlcJGQefMP5Xsu5&quot; alt=&quot;Macun çekilmiş hali&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1o2MMwn_YYer13MPTajfPhwrW2WylnxxV&quot; alt=&quot;Zımpara yapılmış hali&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-adım-astar-ve-sprey-boya&quot;&gt;3. Adım Astar Ve Sprey Boya&lt;/h2&gt;
+
+&lt;p&gt;Bu aşamada astar ve sprey boya hakkında biraz edindiğim tecrübelerimden bahsedeceğim.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sprey boyayı kullanmadan önce çalkalamanız uzun süre hareketsiz olarak kalmış olan boya şişesinin içerisindeki çökelmiş bileşenleri birbirine  misket aracılığıyla tekrardan karıştıracaktır.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Spreye bastığınız andan itibaren elinizi hareket ettirmelisiniz ve boya değen bölgeye kurumadan tekrar uğramamalısınız. Çünkü gereğinde fazla ıslak boya kuru yüzey üzerinde duramaz ve bir süre sonra akmaya başlar.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Boya yaptığınız ortamın tozlu bir ortam olmadığına dikkat edin ve kesinlikle ev içerisinde boya yapmayın ve boyama esnasında maske takmayı unutmayın. Zira bu kimyasal maddeden çıkan havayı solumanızı istemem.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sprey boya kullanımı hakkında birkaç ipucu için bu &lt;a href=&quot;https://www.youtube.com/watch?v=ZDrANAZE-9A&quot;&gt;videoyu&lt;/a&gt; izleyebilirsiniz.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1vKrjsbgFPamkxSl-jXVlanaT1zkoHLWA&quot; alt=&quot;Astarlı Hali 1&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1msAVv2ybYowdb-zqVZAVhg1Pwu9MPcTd&quot; alt=&quot;Astarlı Hali 2&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Zımpara sonrası oluşan çok minik boşlukları doldurmak için zımparalanmış yüzeyi astar sprey boya ile boyuyorum.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1mjiRrAghQ0VamFlu6b1mWiumc3Il3l6D&quot; alt=&quot;Boyanmış hali1&quot; /&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1mjL2mz3MrtD89_ja_nnKZkoFUd0UebLB&quot; alt=&quot;Boyanmış hali2&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1mghBdJ68QwFT7L1DMRQvb303vRjZ6APu&quot; alt=&quot;Boyanmış hali3&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1mZ3TB9-Y0LRhbZH7nFAOzPHq60El1jp3&quot; alt=&quot;Boyanmış hali4&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-adım-hareketli-parçalar-elektronik-ve-yazılım&quot;&gt;4. Adım Hareketli Parçalar, Elektronik Ve Yazılım&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1verjAwDZai8xZuhf9aeZU77U82luTJaq&quot; alt=&quot;Astarlı Hali 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hareketli parçaların tasarımı bana aittir ve &lt;a href=&quot;https://www.thingiverse.com/thing:4804827&quot;&gt;bu linkten&lt;/a&gt; parçalara ulaşıp 3 boyutlu yazıcınız aracılığıyla çıktı alabilirsiniz.&lt;/p&gt;
+
+&lt;h3 id=&quot;çalışma-prensibi&quot;&gt;Çalışma Prensibi&lt;/h3&gt;
+
+&lt;p&gt;Kaskın içerisinde çene kısmına konumlandırdığımız hall sensöründen okunan değer ile servoların açılıp kapanma kararları veriliyor ve maske açılıp kapanıyor. Elimize basitçe bir mıknatıs alıp hall sensörün bulunduğu konuma yaklaştırdığımızda açıp kapatabiliriz.&lt;/p&gt;
+
+&lt;h3 id=&quot;bu-adım-için-gerekli-malzemeler&quot;&gt;Bu adım için gerekli malzemeler&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2 x Sg90 micro servo&lt;/li&gt;
+  &lt;li&gt;4 x 8 mm m3 civata&lt;/li&gt;
+  &lt;li&gt;2 x 3 mm somun&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.thingiverse.com/thing:4804827&quot;&gt;hareketli parçalar(3d printer ile çıkacak)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Arduino uno (siz isterseniz ardunino nano kullanabilirsiniz.)&lt;/li&gt;
+  &lt;li&gt;On / Off switch&lt;/li&gt;
+  &lt;li&gt;2 x 18650 pil&lt;/li&gt;
+  &lt;li&gt;2’li 18650 pil yatağı&lt;/li&gt;
+  &lt;li&gt;Jumper kablolar&lt;/li&gt;
+  &lt;li&gt;us1881 hall effect sensor&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;proje-fritzing-şeması&quot;&gt;Proje Fritzing Şeması&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1-k46FhwpG0wE4tLIl0vL-rqNC-Bto_lt&quot; alt=&quot;Fritzing şeması&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;proje-kaynak-kodları&quot;&gt;Proje Kaynak Kodları&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;#include &amp;lt;Arduino.h&amp;gt;
+#include &amp;lt;Servo.h&amp;gt;  // servo.h kütüphanesini dahil ediyoruz.
+
+Servo servo1;   // Servo sınıfından servo1 ve sevo2 adlı iki servo nesnesi oluşturduk.
+Servo servo2; 
+
+int hall_sensor = 8; // Hall sensorü 8. gpio pinine tanımlıyoruz. 
+bool hallstate = 0;  // Mıknatıs durumunu tutan değişken
+
+void closeTheHelmet()   // maskeyi kapatan fonksiyon
+{
+    for(int i = 140; i&amp;gt;=0; i--)       // kapatırken daha yavaş kapatması için her 1 derece servo hareketinde.
+    {                                 // 3ms bekleme koyuyoruz.
+      if(servo1.read() == 0)          // eğer servo konumu 0 ise döngüyü kır.
+      {
+        break;
+      }
+      servo1.write(i);
+      servo2.write(i);
+      delay(3);
+    }  
+}
+
+void openTheHelmet()    // maskeyi açan fonksiyon
+{
+  if(hallstate == 1)
+  {
+    servo1.write(140);
+    servo2.write(140);
+  }
+}
+
+void setup() 
+{
+  Serial.begin(9600); // Seri haberleşmeyi başlattık.
+  servo1.attach(6);   // servo1 ve servo2 nesnesini 6 ve 7. dijital pinlere tanımlıyoruz.
+  servo2.attach(7); 
+  pinMode(hall_sensor,INPUT_PULLUP);
+ 
+}
+void loop() { 
+
+  hallstate = digitalRead(hall_sensor); // hall sensörden okuma yapıyoruz.
+  if(hallstate == 1)  // Eğer sensör durumu 1 ise 
+  {
+    Serial.println(&quot;open&quot;);
+    openTheHelmet();      // maskeyi aç
+  }
+  else if(hallstate == 0)
+  {
+    Serial.println(&quot;close&quot;);
+    closeTheHelmet();     // maskeyi kapat
+  }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;sonuç&quot;&gt;Sonuç&lt;/h2&gt;
+
+&lt;div class=&quot;youtube-wrapper&quot;&gt;
+    &lt;iframe src=&quot;https://www.youtube.com/embed/oex3lFJXdb8&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Esp32 İle Asenkron Olarak Çalışan Web Server Projesi</title>

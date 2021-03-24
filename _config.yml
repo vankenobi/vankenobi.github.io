@@ -2,6 +2,7 @@ site: Vankenobi
 url: #yoururl
 title: Vankenobi
 description: Writting
+future: true
 twitter:
   username: #yourusername
   card: summary
