@@ -3,11 +3,10 @@ layout: post
 title: "3D Printer İle Iron Man MK3 Helmet(Kask) Yapımı"
 excerpt: ""
 tags: [Iron Man Helmet,3d printer ile iron man kaskı yapımı,DIY Project,motorized helmet,Hareketli Iron Man Kaskı,Iron Man Kask,3D printer,Iron Man Motorized Helmet]
-categories: [ESP32] 
+categories: [3D Printer] 
 date: 2021-03-24 11:39:00
 comments: true
 share: true
-future: true
 image: 
   feature: 
 ---
