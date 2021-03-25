@@ -6,8 +6,8 @@ tags: [Iron Man Helmet,3d printer ile iron man kaskı yapımı,DIY Project,motor
 categories: [3D Printer] 
 date: 2021-03-24 11:39:00
 comments: true
-share: true
-image: 
+share: true 
+image:  
   feature: 
 ---
 
@@ -65,7 +65,7 @@ Sağ Kulak            |  Sol Kulak
 
 #### Arka Kısım
 
-![Sağ kısım](https://drive.google.com/uc?export=view&id=1vIm3lVcCj2JLBWYWRCEaptcQeoy40bC5)
+![Arka kısım](https://drive.google.com/uc?export=view&id=1qzwXIbvmB4YoAC4D50IsoQMx0UilSfJJ)
 
 #### Parçaların Tamamının Bant İle Bir Araya Getirilmiş Hali
              
