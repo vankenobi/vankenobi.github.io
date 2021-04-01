@@ -4,13 +4,440 @@
  <title>Vankenobi</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-27T00:35:31+03:00</updated>
+ <updated>2021-04-01T14:02:22+03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Rfid Ve Google Asistant İle Açılabilen Kapı Otomatiği</title>
+   <link href="http://localhost:4000/2021/03/27/uzaktan-kontroll%C3%BC-ve-google-asistant-i%CC%87le-kontrol-edilebilen-kap%C4%B1-otomati%C4%9Fi"/>
+   <updated>2021-03-27T14:39:00+03:00</updated>
+   <id>http://localhost:4000/2021/03/27/Uzaktan-Kontrollü-Ve-Google-Asistant-İle-Kontrol-Edilebilen-Kapı-Otomatiği</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1xHLijZcZAthUZLFhfuBar0_oeQHLvsBL&quot; alt=&quot;Tittle-Photo&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;proje-hakkında&quot;&gt;Proje Hakkında&lt;/h1&gt;
+
+&lt;p&gt;Herkese merhabalar, bu blog yazısında Google asistan, rfid kart(anahtarlık), Blynk üzerinden açılabilen aynı zamanda google tablolar üzerinde kimin giriş yaptığını ve ne zaman girdiğini log tutabilen kapı otomatiği projesinden bahsedeceğim.&lt;/p&gt;
+
+&lt;h4 id=&quot;proje-gereksinimleri&quot;&gt;Proje Gereksinimleri&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RC522 RFID NFC modülü&lt;/li&gt;
+  &lt;li&gt;NodeMCU geliştirme kartı&lt;/li&gt;
+  &lt;li&gt;Yeşil, sarı, kırmızı (3 adet) 5mm led&lt;/li&gt;
+  &lt;li&gt;1 adet buton&lt;/li&gt;
+  &lt;li&gt;1 adet 220V röle&lt;/li&gt;
+  &lt;li&gt;LM2596 ayarlanabilir voltaj düşürücü&lt;/li&gt;
+  &lt;li&gt;2 Pin yeşil klemens&lt;/li&gt;
+  &lt;li&gt;Delikli pertinaks&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.thingiverse.com/thing:4808529&quot; target=&quot;_blank&quot;&gt;3D printerdan çıkarılması gereken STL dosyaları&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;projede-kullanılan-platformlar&quot;&gt;Projede Kullanılan Platformlar&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ifttt.com/&quot; target=&quot;_blank&quot;&gt;IFTTT&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blynk.io/&quot; target=&quot;_blank&quot;&gt;Blynk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/sheets/about/&quot; target=&quot;_blank&quot;&gt;Google Sheet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;1-adım-proje-i̇çin-blynk-kurulumu&quot;&gt;1. Adım Proje İçin Blynk Kurulumu&lt;/h1&gt;
+
+&lt;h4 id=&quot;blynk-nedir-&quot;&gt;Blynk Nedir ?&lt;/h4&gt;
+
+&lt;p&gt;Blynk nesnelerin interneti için tasarlanmış bir IOT platformudur. Donanımı uzaktan kontrol edebilir,donanıma bağlı sensörlerden gelen veriyi okuyabilir, verileri depolayabilir, görselleştirebilir ve diğer birçok şeyi yapabilen bir IOT platformudur.&lt;/p&gt;
+
+&lt;h4 id=&quot;blynk-kurulumu-&quot;&gt;Blynk Kurulumu ?&lt;/h4&gt;
+
+&lt;p&gt;Google Play Store üzerinden Blynk uygulamasını android cihazınıza &lt;a href=&quot;https://play.google.com/store/apps/details?id=cc.blynk&amp;amp;hl=tr&quot;&gt;bu linkten&lt;/a&gt; ulaşarak kurabilirsiniz. Cihazınıza kurduktan sonra bir blynk hesabı oluşturmalısınız. Hesap oluşturduktan sonra “New Project” butonuna tıklayarak yeni bir proje oluşturmalısınız.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1SGSmGWn1AgqbUdxsJi8LUmAtFHZQ8fiN&quot; alt=&quot;Blynk Google Play&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;“New Project” butonuna tıkliyoruz&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Proje adı, kartı ve bağlantı tipini seçerek “create” butonuna tıklıyoruz butona tıkladığınız anda kod içerisinde kullanacağımız auth kodu emailinize gönderilecek.&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1xeOLmsgKh12LBAX_sXz6e-fiD6r8TSP8&quot; alt=&quot;New Project&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1xV83gX9S5CM69jvV2zPhj5L-ez34CA02&quot; alt=&quot;New Project Ayarları&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Widget kutusundan bir button ekliyoruz&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Eklenen butonun pinini bir sanal pin olan V2 olarak değiştiriyoruz&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1xlu-KwwMM17ob2y_DbUzFxnK6zsWlyGI&quot; alt=&quot;Button&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1xhAAgSCMZNqoEnDWMeSvg0m6eD5ZBe54&quot; alt=&quot;Button Ayarları&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Widget kutusundan bir notification ekliyoruz&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Eklenen notification widget’ın ayarları&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1xgV8GeeIrfvCDjl0rTl9BZbxcfxCe9kn&quot; alt=&quot;Button&quot; /&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1xgtCliMMW6ngqb3uLnj_9TEh7MnOpY3U&quot; alt=&quot;Button Ayarları&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;eklenen-widgetlar-sonrası-blynk-paneli-genel-görünümü&quot;&gt;Eklenen widgetlar sonrası blynk paneli genel görünümü&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1y10caqjzqgRAtYqLVmAMviwtJG_KtK0L&quot; alt=&quot;New Project&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;2-adım-proje-i̇çin-ifttt-google-assistant-kurulumu&quot;&gt;2. Adım Proje İçin IFTTT (Google Assistant) Kurulumu&lt;/h1&gt;
+
+&lt;h4 id=&quot;ifttt-nedir-&quot;&gt;IFTTT Nedir ?&lt;/h4&gt;
+
+&lt;p&gt;IFTTT “If This, Then That” anlamına gelir. IFTTT hem bir websitesidir hem de bir mobil uygulamaya sahiptir. Platformun sağladığı şey uygulamaları birbirine bağlamak. Kısacası servislerin ve cihazların birbirleri ile konuşması diyebiliriz. Örneğin android telefonunuzda bir arama yaparsanız, o aramanın günlüğü bir Google e-tablosuna eklenir. Bunu IfTT size sağlar. Veya evde telefonunuzu kaybettiğiniz zaman google home mini cihazınıza “Benim telefonum nerede ?” sorusunu iletirseniz telefonunuzu çaldıracaktır. Bir başka örnek ise toplantı saatiniz geldiğinde philips hue ampüllerinizi yeşil renkte yakabilirsiniz. Bu ve bunun gibi senaryoları IFTTT ile yapmanız mümkün.&lt;/p&gt;
+
+&lt;p&gt;Ben bu projede evinizdeki google home mini cihazına veya telefonunuzdaki google asistanınıza “hey google open the door” dediğinizde dış kapı otomatiğini tetiklettirmesini öğreteceğim.&lt;/p&gt;
+
+&lt;h4 id=&quot;ifttt-google-assistant-applet-kurulumu-&quot;&gt;IFTTT (Google assistant Applet) Kurulumu ?&lt;/h4&gt;
+
+&lt;p&gt;IFTTT web sitesine &lt;a href=&quot;https://ifttt.com/&quot;&gt;buradan&lt;/a&gt; ulaşabilirsiniz. Siteye google hesabınızla kayıt olup giriş yaptıktan sonra sırasıyla aşağıdaki adımları izleyerek google asistan ile oluşturduğumuz sisteme komut gönderip kapyı açtırabiliriz.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;İlk olarak IFTTT sitesinde ana sayfada iken sağ üst köşedeki “Create” butonuna tıklıyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1iLJ4JJd7-m1fLEu8Y1wJM15RXsZlJXZF&quot; alt=&quot;IFTTT Create&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gelen sayfada if kutucuğu içerisindeki “add” butonuna tıklıyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1B8G0RTALe21FgpL3oJmEuasAai2cAXGc&quot; alt=&quot;IFTTT IF THIS THAN THAT&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ekrana gelen servisler içerisinden google assistant seçeneğini seçiyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1tg7RbTajvHXVjf-WGprBpYe6847GIqdh&quot; alt=&quot;Google Assistant&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bu kısımda olayın tetiklenmesi için google asistanınıza ne söylemek istediğinizi ve asistanınızın size dönüş olarak ne cevap vereceğini belirliyorsunuz. Create Trigger butonuna basıp tetikleyiciyi oluşturmuş oluyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1cTxWRGKWHt1BWMtlnqw2s9fN_3S_P6XQ&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gelen sayfada then that kutucuğu içerisindeki “add” butonuna tıklıyoruz ve servisler arasından webhooks’u seçiyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1jpKy1QGhKs6HmuK5v5cCx6XrOQV3cPt1&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“authcode” yazan kısma blynk’in kayıt olunan mail adresine gönderdiği auth kodunu yapıştırıyoruz ve diğer ayarları bu şekilde değiştiriyoruz. Create action butonuna basıyoruz&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1pNMt2I5e3UAf8mZKxlS6TuFrKEVl1J6y&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;2-adım-proje-i̇çin-ifttt-google-sheets-applet-kurulumu&quot;&gt;2. Adım Proje İçin IFTTT (Google Sheets Applet) Kurulumu&lt;/h1&gt;
+
+&lt;h4 id=&quot;ifttt-google-sheets-applet-kurulumu-&quot;&gt;IFTTT (Google Sheets Applet) Kurulumu ?&lt;/h4&gt;
+
+&lt;p&gt;Her giren kullanıcı için okuttuğu rfid kartın id’si, giriş yaptığı zaman, adı soyadı ve açılıp açılmadığı bilgilerini göndermek için google tablolarda kayıt tutuyoruz. Google sheet appletlerini eklemek için sırasıyla aşağıdaki adımları izlememiz gerekiyor. 
+Tekrar ana sayfada “create” tuşuna bastıktan ve if kutucuğu içerisindeki “add” butonuna bastıktan sonra servisler içerisinden webhook servisini seçiyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;event name kısmına logger yazıyorum bu benim yazdığım programın bir gereği siz başka bir şey yazabilirsiniz. create trigger butonuna tıkladıktan sonra then kutucuğunun içerisindeki add butonuna tıklıyoruz ve tekrardan yeni bir servis arıyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1i8Gb5ZHZktLfCakpXfq7BvEFNx8HvWAR&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google sheets servisini arıyoruz ve seçiyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1jHGeHfhtW_ecD_TgvVwF99dPzqlFIO0C&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Daha sonra add row to spreadsheet seçeneğine tıklıyoruz. Bunu seçmemizin sebebi tabloya her yeni bir bilgi geldiğinde yeni bir satıra ekleniyor.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1CnbDMIM9bwLpFpeo8HDDd8WhYBOnJyEa&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ayarlar aşağıdaki gibi olmalıdır eğer isterseniz tablo adını değiştirebilirsiniz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1zQlM7q6lLmZfqfHNvF38NUgc3yuhNDs1&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;proje-fritzing-şeması&quot;&gt;Proje Fritzing Şeması&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1Fkml9wqiZ7cEA1TqU5v_uhlK3bOEZdzJ&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;proje-kaynak-kodları&quot;&gt;Proje Kaynak Kodları&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;
+#include &amp;lt;SPI.h&amp;gt;    // Rfid modülünün haberleşmesi için SPI kütüphanesi eklendi.
+#include &amp;lt;MFRC522.h&amp;gt;  // Rfid modülü için MFRC522 kütüphanesi eklendi.
+
+#include &amp;lt;WiFiClient.h&amp;gt; 
+#define BLYNK_PRINT Serial
+#include &amp;lt;ESP8266WiFi.h&amp;gt;
+#include &amp;lt;BlynkSimpleEsp8266.h&amp;gt;
+
+//***** KABLOSUZ AYARLARI ******* 
+char auth[] = &quot;Blynk auth code&quot;;    //Blynk auth code girilecek
+const char* ssid = &quot;Wifi SSID&quot;;     //Bağlanılacak olan wifi ağı adı
+const char* pass = &quot;Wifi Pass&quot;;     //Bağlanılacak olan wifi ağı şifresi
+
+
+//************* IFTTT ****************
+const char* server = &quot;maker.ifttt.com&quot;; 
+// Kişiye özel IFTTT Url'i
+const char* resource = &quot;Google Sheet appletinden gelen link&quot;;  // Google Sheet appletinde bulunan link
+
+//*********** RFID **************
+#define RST_PIN         D8           
+#define SS_PIN          D4          
+#define relay           D3
+#define button          D8
+
+MFRC522 mfrc522(SS_PIN, RST_PIN);   
+String readCardId = &quot;&quot;; // okunan kart idsi
+String tempid = &quot;&quot;;     // değişken kart idsi
+
+//******** Led Pins and Button Pin *************
+#define green           D1
+#define red             D0
+#define yellow          D2
+
+unsigned long lastTime = 0;
+unsigned long lastTime1 = 0;
+unsigned long lastTime2 = 0;
+
+unsigned long delayTime = 10000; 
+unsigned long delayTime1 = 2500;  
+unsigned long delayTime2 = 60000;
+
+WiFiClient client;
+
+//***** ANAHTAR LİSTESİ ***********
+String Key_list[2][2] =          // Anahtar Listesi
+  {
+  {&quot;örnek kullanıcı adı1&quot;,&quot;örnek kullanıcı 1 kartid&quot;},
+  {&quot;örnek kullanıcı adı2&quot;,&quot;örnek kullanıcı 2 kartid&quot;},
+  
+
+  };
+
+// Google tablolar ile bağlantı sağlayan fonksiyon 
+void connectGoogleSheets()
+{
+  int retries = 8;
+
+  while(!!!client.connect(server, 80) &amp;amp;&amp;amp; (retries-- &amp;gt; 0)) {
+    Serial.print(&quot;.&quot;);
+  }
+} 
+// IFTTT web servisine bir http isteği gönderir.
+void makeIFTTTRequest(String name_surname,String kart_id,String durum) {
+  digitalWrite(red,HIGH);
+  Serial.print(&quot;Connecting to &quot;); 
+  Serial.print(server);
+  
+  int retries = 5;
+  while(!!!client.connect(server, 80) &amp;amp;&amp;amp; (retries-- &amp;gt; 0)) {
+    Serial.print(&quot;.&quot;);
+  }
+  Serial.println();
+  if(!!!client.connected()) {
+    Serial.println(&quot;Failed to connect...&quot;);
+  }
+  
+  Serial.print(&quot;Request resource: &quot;); 
+  Serial.println(resource);
+
+  
+  String jsonObject = String(&quot;{\&quot;value1\&quot;:\&quot;&quot;) + name_surname + &quot;\&quot;,\&quot;value2\&quot;:\&quot;&quot; + kart_id
+                      + &quot;\&quot;,\&quot;value3\&quot;:\&quot;&quot; + durum + &quot;\&quot;}&quot;;
+                      
+            
+  client.println(String(&quot;POST &quot;) + resource + &quot; HTTP/1.1&quot;);
+  client.println(String(&quot;Host: &quot;) + server); 
+  client.println(&quot;Connection: close\r\nContent-Type: application/json&quot;);
+  client.print(&quot;Content-Length: &quot;);
+  client.println(jsonObject.length());
+  client.println();
+  client.println(jsonObject);
+        
+  int timeout = 5 * 10; // 5 seconds             
+  while(!!!client.available() &amp;amp;&amp;amp; (timeout-- &amp;gt; 0)){
+    delay(100);
+  }
+  if(!!!client.available()) {
+    Serial.println(&quot;No response...&quot;);
+  }
+  while(client.available()){
+    Serial.write(client.read());
+  }
+  
+  Serial.println(&quot;\nclosing connection&quot;);
+  client.stop(); 
+  digitalWrite(red,LOW);
+}
+String getID()  
+{
+  digitalWrite(green,HIGH);
+  delay(200);
+  readCardId = &quot;&quot;;
+  if(!mfrc522.PICC_IsNewCardPresent())
+    {
+      return &quot;&quot;;
+    }
+    if(!mfrc522.PICC_ReadCardSerial())
+    {
+      return &quot;&quot;;
+    }
+    for(int i = 0; i &amp;lt; mfrc522.uid.size;i++)
+    {
+      readCardId += String(mfrc522.uid.uidByte[i],HEX);
+    }
+    Serial.println(readCardId);
+    digitalWrite(green,LOW);
+    return readCardId;
+}
+
+void openDoor()   // Kapı aç metodu kapı otomatiğini 200 milisaniye açıyor ve kapatıyor.
+{
+  digitalWrite(relay,HIGH);
+  delay(200);
+  digitalWrite(relay,LOW);
+}
+
+void decision()   //Karar fonksiyonu ile gelen kart id'nin kararı verilir.
+{
+  
+  for(int count=0;count&amp;lt;11;count++)
+    {
+      if(Key_list[count][1] == tempid)
+      {
+        digitalWrite(red,HIGH);
+        digitalWrite(green,LOW);
+        
+        Serial.print(Key_list[count][0]);
+       // Serial.println(&quot; Adli kisi giris yapti.&quot;);
+        openDoor();
+        if(Blynk.connected()) makeIFTTTRequest(Key_list[count][0],Key_list[count][1],&quot;Açıldı.&quot;);
+        
+        digitalWrite(red,LOW);
+        digitalWrite(green,HIGH);
+        tempid = &quot;&quot;;
+        break;
+      }
+    }
+     if(tempid != &quot;&quot;)
+      {
+        if(Blynk.connected()) makeIFTTTRequest(&quot;Bilinmeyen Kullanici&quot;,tempid,&quot;Açılmadı.&quot;);
+        digitalWrite(red,HIGH);
+        delay(250);
+        digitalWrite(red,LOW);
+      }
+}
+
+BLYNK_WRITE(V2) // Blynk Write(v2) ile ikinci sanal pinden okuma alınır.Alınan okuma 1 ise kapı açma izni verilir.
+{
+  digitalWrite(green,LOW);
+  int pinData = param.asInt(); 
+  if(pinData == 1){
+    openDoor();
+    makeIFTTTRequest(&quot;Google Asistan&quot;,&quot;Kartız&quot;,&quot;Açıldı.&quot;);
+  }
+  digitalWrite(green,HIGH);
+}
+
+void setup() {
+  Serial.begin(9600);  // Seri haberleşmeyi başlatıyoruz.                                         
+  SPI.begin();         // Spi haberleşme başlatıldı.                                       
+  mfrc522.PCD_Init();  // Rfid modül başlatıldı.
+  
+  // röle,ledler,ve buton için giriş çıkış atandı.
+  pinMode(relay,OUTPUT);
+  pinMode(green,OUTPUT);
+  pinMode(red,OUTPUT);
+  pinMode(yellow,OUTPUT);
+  pinMode(button,INPUT);
+  digitalWrite(relay,LOW);
+  
+  Blynk.config(auth,&quot;blynk-cloud.com&quot;, 8080);
+  
+}
+
+void loop() {
+  unsigned long nowTime = millis(); 
+  unsigned long nowTime1 = millis();
+  unsigned long nowTime2 = millis();
+
+  if (nowTime - lastTime &amp;gt;= delayTime) 
+  {
+    lastTime = nowTime;    
+    if(WiFi.status() != WL_CONNECTED) // her 10 saniyede bir internet bağlantısı kontrol edilir eğer bağlantı yok ise tekrar bağlanmayı dener. 
+    {
+      digitalWrite(yellow,LOW);
+      WiFi.begin(ssid,pass);
+      Blynk.config(auth,&quot;blynk-cloud.com&quot;, 8080);
+    } 
+    else digitalWrite(yellow,HIGH);
+  }
+
+  if(nowTime1 - lastTime1 &amp;gt;= delayTime1) // her 2,5 saniyede bir kapı açma isteği butonuna basılıp basılmadığı kontrol ediliyor.
+  {
+    lastTime1 = nowTime1;
+    if(digitalRead(button) == true){
+      digitalWrite(red,HIGH);
+      Blynk.notify(&quot;Bina içersindeki kapıdan bir kişi kapı açma isteği gönderdi.&quot;); 
+    }
+    else digitalWrite(red,LOW);
+  }
+
+  if(nowTime2 - lastTime2 &amp;gt;= delayTime2)  // bir dakikada bir google tablolar ile bağlantı sağlanıyor.
+  {
+    lastTime2 = nowTime2;
+    connectGoogleSheets();
+  }
+ 
+  tempid = getID(); //kart üzerinde okunan kart id tempid değişkenine atılır.
+  decision();  // karar metodu ile kapının açılıp açılmayacağı kararı verilir.
+
+  Blynk.run();
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;sonuç&quot;&gt;Sonuç&lt;/h2&gt;
+
+&lt;div class=&quot;youtube-wrapper&quot;&gt;
+    &lt;iframe src=&quot;https://www.youtube.com/embed/S1oL-IkkozY&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>3D Printer İle Iron Man MK3 Helmet(Kask) Yapımı</title>
@@ -35,7 +462,7 @@
 
 &lt;h1 id=&quot;projeye-giriş&quot;&gt;Projeye Giriş&lt;/h1&gt;
 
-&lt;p&gt;İlk olarak parçaları 3d printerdan çıkarmamız gerekiyor. Kaskın tasarımını thingiverse sitesinde aldım sizler de kaskın .stl dosyalarına &lt;a href=&quot;https://www.thingiverse.com/thing:260152&quot;&gt;buradan&lt;/a&gt; ulaşabilirsiniz. Bu arada &lt;a href=&quot;https://www.thingiverse.com/&quot;&gt;thingiverse&lt;/a&gt; sitesi hayatınızı kolaylaştıracak birçok tasarımı bulabileceğiniz ve bu tasarımların kaynak dosyalarını indirip 3 boyutlu yazıcınızda çıkarabileceğiniz bir websitesidir.Sizler de siteye üye olup kendi çizimlerinizi yükleyebilirsiniz.&lt;/p&gt;
+&lt;p&gt;İlk olarak parçaları 3d printerdan çıkarmamız gerekiyor. Kaskın tasarımını thingiverse sitesinde aldım sizler de kaskın .stl dosyalarına &lt;a href=&quot;https://www.thingiverse.com/thing:260152&quot; target=&quot;_blank&quot;&gt;buradan&lt;/a&gt; ulaşabilirsiniz. Bu arada &lt;a href=&quot;https://www.thingiverse.com/&quot; target=&quot;_blank&quot;&gt;thingiverse&lt;/a&gt; sitesi hayatınızı kolaylaştıracak birçok tasarımı bulabileceğiniz ve bu tasarımların kaynak dosyalarını indirip 3 boyutlu yazıcınızda çıkarabileceğiniz bir websitesidir.Sizler de siteye üye olup kendi çizimlerinizi yükleyebilirsiniz.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-adım-parçaların-basılması&quot;&gt;1. Adım Parçaların Basılması&lt;/h2&gt;
 
@@ -173,7 +600,7 @@
     &lt;p&gt;Boya yaptığınız ortamın tozlu bir ortam olmadığına dikkat edin ve kesinlikle ev içerisinde boya yapmayın ve boyama esnasında maske takmayı unutmayın. Zira bu kimyasal maddeden çıkan havayı solumanızı istemem.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Sprey boya kullanımı hakkında birkaç ipucu için bu &lt;a href=&quot;https://www.youtube.com/watch?v=ZDrANAZE-9A&quot;&gt;videoyu&lt;/a&gt; izleyebilirsiniz.&lt;/p&gt;
+    &lt;p&gt;Sprey boya kullanımı hakkında birkaç ipucu için bu &lt;a href=&quot;https://www.youtube.com/watch?v=ZDrANAZE-9A&quot; target=&quot;_blank&quot;&gt;videoyu&lt;/a&gt; izleyebilirsiniz.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -213,7 +640,7 @@
 
 &lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1verjAwDZai8xZuhf9aeZU77U82luTJaq&quot; alt=&quot;Astarlı Hali 1&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Hareketli parçaların tasarımı bana aittir ve &lt;a href=&quot;https://www.thingiverse.com/thing:4804827&quot;&gt;bu linkten&lt;/a&gt; parçalara ulaşıp 3 boyutlu yazıcınız aracılığıyla çıktı alabilirsiniz.&lt;/p&gt;
+&lt;p&gt;Hareketli parçaların tasarımı bana aittir ve &lt;a href=&quot;https://www.thingiverse.com/thing:4804827&quot; target=&quot;_blank&quot;&gt;bu linkten&lt;/a&gt; parçalara ulaşıp 3 boyutlu yazıcınız aracılığıyla çıktı alabilirsiniz.&lt;/p&gt;
 
 &lt;h3 id=&quot;çalışma-prensibi&quot;&gt;Çalışma Prensibi&lt;/h3&gt;
 
@@ -225,7 +652,7 @@
   &lt;li&gt;2 x Sg90 micro servo&lt;/li&gt;
   &lt;li&gt;4 x 8 mm m3 civata&lt;/li&gt;
   &lt;li&gt;2 x 3 mm somun&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.thingiverse.com/thing:4804827&quot;&gt;hareketli parçalar(3d printer ile çıkacak)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.thingiverse.com/thing:4804827&quot; target=&quot;_blank&quot;&gt;hareketli parçalar(3d printer ile çıkacak)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Arduino uno (siz isterseniz ardunino nano kullanabilirsiniz.)&lt;/li&gt;
   &lt;li&gt;On / Off switch&lt;/li&gt;
   &lt;li&gt;2 x 18650 pil&lt;/li&gt;

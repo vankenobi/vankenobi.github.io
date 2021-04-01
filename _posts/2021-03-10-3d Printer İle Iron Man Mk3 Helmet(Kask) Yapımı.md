@@ -28,7 +28,7 @@ Herkese merhabalar, bu blog yazısındaki projede iron man'in açılıp kapanabi
 # Projeye Giriş
 
 
-İlk olarak parçaları 3d printerdan çıkarmamız gerekiyor. Kaskın tasarımını thingiverse sitesinde aldım sizler de kaskın .stl dosyalarına [buradan](https://www.thingiverse.com/thing:260152) ulaşabilirsiniz. Bu arada [thingiverse](https://www.thingiverse.com/) sitesi hayatınızı kolaylaştıracak birçok tasarımı bulabileceğiniz ve bu tasarımların kaynak dosyalarını indirip 3 boyutlu yazıcınızda çıkarabileceğiniz bir websitesidir.Sizler de siteye üye olup kendi çizimlerinizi yükleyebilirsiniz.
+İlk olarak parçaları 3d printerdan çıkarmamız gerekiyor. Kaskın tasarımını thingiverse sitesinde aldım sizler de kaskın .stl dosyalarına [buradan](https://www.thingiverse.com/thing:260152){:target="_blank"} ulaşabilirsiniz. Bu arada [thingiverse](https://www.thingiverse.com/){:target="_blank"} sitesi hayatınızı kolaylaştıracak birçok tasarımı bulabileceğiniz ve bu tasarımların kaynak dosyalarını indirip 3 boyutlu yazıcınızda çıkarabileceğiniz bir websitesidir.Sizler de siteye üye olup kendi çizimlerinizi yükleyebilirsiniz.
 
 
 ## 1. Adım Parçaların Basılması
@@ -106,7 +106,7 @@ Bu aşamada astar ve sprey boya hakkında biraz edindiğim tecrübelerimden bahs
 
 * Boya yaptığınız ortamın tozlu bir ortam olmadığına dikkat edin ve kesinlikle ev içerisinde boya yapmayın ve boyama esnasında maske takmayı unutmayın. Zira bu kimyasal maddeden çıkan havayı solumanızı istemem.
 
-* Sprey boya kullanımı hakkında birkaç ipucu için bu [videoyu](https://www.youtube.com/watch?v=ZDrANAZE-9A) izleyebilirsiniz.
+* Sprey boya kullanımı hakkında birkaç ipucu için bu [videoyu](https://www.youtube.com/watch?v=ZDrANAZE-9A){:target="_blank"} izleyebilirsiniz.
 
 <br>
 
@@ -129,7 +129,7 @@ Zımpara sonrası oluşan çok minik boşlukları doldurmak için zımparalanmı
 
 ![Astarlı Hali 1](https://drive.google.com/uc?export=view&id=1verjAwDZai8xZuhf9aeZU77U82luTJaq)
 
-Hareketli parçaların tasarımı bana aittir ve [bu linkten](https://www.thingiverse.com/thing:4804827) parçalara ulaşıp 3 boyutlu yazıcınız aracılığıyla çıktı alabilirsiniz.
+Hareketli parçaların tasarımı bana aittir ve [bu linkten](https://www.thingiverse.com/thing:4804827){:target="_blank"} parçalara ulaşıp 3 boyutlu yazıcınız aracılığıyla çıktı alabilirsiniz.
 
 ### Çalışma Prensibi
 
@@ -140,7 +140,7 @@ Kaskın içerisinde çene kısmına konumlandırdığımız hall sensöründen o
 * 2 x Sg90 micro servo 
 * 4 x 8 mm m3 civata
 * 2 x 3 mm somun 
-* [hareketli parçalar(3d printer ile çıkacak)](https://www.thingiverse.com/thing:4804827)
+* [hareketli parçalar(3d printer ile çıkacak)](https://www.thingiverse.com/thing:4804827){:target="_blank"}
 * Arduino uno (siz isterseniz ardunino nano kullanabilirsiniz.)
 * On / Off switch
 * 2 x 18650 pil 
