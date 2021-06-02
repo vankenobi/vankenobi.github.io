@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "Esp8266-01 + IFTTT + PIR Sensor Kullanarak Hareket Sensörü Projesi",
+      "url"      : "/2021/06/01/esp8266-01-i%CC%87le-hareket-sens%C3%B6r%C3%BC-projesi",
+      "category" : "Esp8266-01",
+      "tags"     : "Esp8266, PIR sensor, Motion Sensor, Hareket Sensörü, IFTTT, 3D Printer, 3 Boyutlu Yazıcı, DIY Project, Deep Sleep, Wifi Manager, Static IP",
+      "date"     : "2021-06-01 14:39:00 +0300",
+      "description" : ""
+
+    } ,
+  
+    {
+
       "title"    : "Rfid Ve Google Asistant İle Açılabilen Kapı Otomatiği",
       "url"      : "/2021/03/27/uzaktan-kontroll%C3%BC-ve-google-asistant-i%CC%87le-kontrol-edilebilen-kap%C4%B1-otomati%C4%9Fi",
       "category" : "nodeMCU",

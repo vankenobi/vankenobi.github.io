@@ -4,13 +4,265 @@
  <title>Vankenobi</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-04-01T14:02:22+03:00</updated>
+ <updated>2021-06-02T23:05:43+03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Esp8266-01 + IFTTT + PIR Sensor Kullanarak Hareket Sensörü Projesi</title>
+   <link href="http://localhost:4000/2021/06/01/esp8266-01-i%CC%87le-hareket-sens%C3%B6r%C3%BC-projesi"/>
+   <updated>2021-06-01T14:39:00+03:00</updated>
+   <id>http://localhost:4000/2021/06/01/Esp8266-01 İle Hareket Sensörü Projesi</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=11bZA4BDXUXLq8-hZP5KknDR4OOC4TX9b&quot; alt=&quot;AsenkronServer&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;proje-hakkında&quot;&gt;Proje Hakkında&lt;/h3&gt;
+
+&lt;p&gt;Herkese merhabalar, bu blog yazısındaki projede uzun süre çalışabilen hareket algıladığında Google Tablolara (Google Sheets) kayıt tutabilen ve aynı zamanda IFTTT üzerinden mobil cihazınıza bildirim gönderebilen bir proje gerçekleştireceğim.&lt;/p&gt;
+
+&lt;h4 id=&quot;proje-gereksinimleri&quot;&gt;Proje Gereksinimleri&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Esp8266-01&lt;/li&gt;
+  &lt;li&gt;HC-SR501 PIR Sensor (Hareket Sensörü)&lt;/li&gt;
+  &lt;li&gt;1 Adet Toggle Switch&lt;/li&gt;
+  &lt;li&gt;Bir kaç bağlantı kablosu&lt;/li&gt;
+  &lt;li&gt;2 adet AA pil&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.thingiverse.com/thing:4840469&quot; target=&quot;_blank&quot;&gt;Ürün şasisi (3d printer ile çıkacak .stl formatlı dosyalar)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;4 adet 3 mm vida&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;projede-kullanılan-bazı-kütüphane-ve-platformlar&quot;&gt;Projede Kullanılan Bazı Kütüphane Ve Platformlar&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ifttt.com/&quot; target=&quot;_blank&quot;&gt;IFTTT&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/sheets/about/&quot; target=&quot;_blank&quot;&gt;Google Sheet&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tzapu/WiFiManager&quot; target=&quot;_blank&quot;&gt;WifiManager Kütüphanesi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;proje-i̇çin-kullanılan-platformların-tanıtılması-ve-kurulumu&quot;&gt;Proje İçin Kullanılan Platformların Tanıtılması Ve Kurulumu&lt;/h3&gt;
+
+&lt;h4 id=&quot;ifttt-nedir-&quot;&gt;IFTTT Nedir ?&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1NgsrsokYAW9vGFxjRrjeGAEee_HoS7J8&quot; alt=&quot;Tittle-Photo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;IFTTT “If This, Then That” anlamına gelir. IFTTT hem bir websitesidir hem de bir mobil uygulamaya sahiptir. Platformun sağladığı şey uygulamaları birbirine bağlamak. Kısacası servislerin ve cihazların birbirleri ile konuşması diyebiliriz. Örneğin android telefonunuzda bir arama yaparsanız, o aramanın günlüğü bir Google e-tablosuna eklenir. Bunu IFTTT size sağlar. Veya evde telefonunuzu kaybettiğiniz zaman google home mini cihazınıza “Benim telefonum nerede ?” sorusunu iletirseniz telefonunuzu çaldıracaktır. Bir başka örnek ise toplantı saatiniz geldiğinde philips hue ampüllerinizi yeşil renkte yakabilirsiniz. Bu ve bunun gibi senaryoları IFTTT ile yapmanız mümkün. 
+Bu projede IFTTT aracılığı ile aşağıdaki olaylar gerçekleştirilecek;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hareket sensörü eğer bir hareket algıladıysa bu hareketin zamanını ve “Hareket Algılandı !” yazısını Google Tablolara (Google Sheets) kayıt etmesini gerçekleştireceğiz.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;IFTTT notification applet’i aracılığı ile IFTTT kurulu olan mobil cihazınıza hareketin algılandığını bildirim olarak göndereceğiz.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;google-tablolar-google-sheets-nedir-&quot;&gt;Google Tablolar (Google Sheets) Nedir ?&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1pYliib1K-MKSHgHeTYScSi4_-xigr6C0&quot; alt=&quot;Tittle-Photo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Google E-Tablolar, e-tablolar oluşturmak ve düzenlemek için kullanılan, ücretsiz web üzerinden kontrol edilebilen bir programdır. Google E-Tablolar, Google Dokümanlar ve Google Slaytlarla beraber Google’ın Drive içerisinde bir parçası olarak gösterilebilir. Microsoft’un Office programlarına benzer bir yapıdadır. Microsoft Office uygulamalarına göre sistemin artıları var. Uzaktan birden fazla sayıda cihazla kontrol, grup olarak çalışma gibi artılarla beraber Google tabloların bunların dışında birden fazla avantajlı özelliği vardır.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;wifi-manager-kütüphanesi-nedir-&quot;&gt;Wifi Manager Kütüphanesi Nedir ?&lt;/h4&gt;
+
+&lt;p&gt;WifiManager bir wifi yönetim kütüphanesidir. Bu kütüphane esp8266-01 kartının bağlanması gereken wifi ağını kod içerisinde tanımlamak yerine cihazın kullanıcıya sunmuş olduğu web sayfası sayesinde dışarıdan girme özelliği sunuyor. WifiManager kütüphanesinin çalışma şeklinin akış diyagramı aşağıda görülmektedir.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1v6B51nMlziV2WTL1qvUUdXD2kVETkwVE&quot; alt=&quot;Tittle-Photo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;deep-sleep-nedir-&quot;&gt;Deep Sleep Nedir ?&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1pqeKRWUHagcQ5pqNvR3e9bse5vjrpPHq&quot; alt=&quot;Tittle-Photo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pil ile çalışan bir esp8266 ile proje yaptıysanız veya nodeMCU kartınızı bir güç bankasına bağladıysanız bir süre sonra, özellikle projede wifi kullanıyorsanız pilin uzun sürmediğini fark edeceksiniz. Özellikle Iot cihazlarda ve mobil çalışan cihazlarda bu durum büyük problemdir. Ancak DeepSleep buna büyük anlamda çözüm getirir. Wifi bağlantısı cihazın daha fazla akım çekmesine sebep olur. Bu nedenle pilin enerjisini hızlıca tüketmesi kaçınılmazdır. Bu durum Deep Sleep sayesinde kolayca ve büyük bir oranla aşılabilir. DeepSleep mikroişlemci tarafında bir özelliktir.&lt;/p&gt;
+
+&lt;p&gt;Varsayalım bir hava istasyonu projesi yaptınız. Dht11 sıcaklık ve nem sensöründen gelen verileri esp8266 kartı aracılığı ile internete çıkarıyorsunuz ve her saat başı bu işlemi yaptırıyorsunuz. Varsayalım her bir işlem sadece 5 saniyede kendini tamamlasın. Cihaz bir gün içerisinde sadece 24 kez bu işlemi gerçekleştirecek ve toplamda 120 saniye yani 2 dakika çalışacak. Bir günde 24*60 = 1440 dakika var. 
+ 1440 - 24 = 1416 dakika cihaz boşuna çalışmış olacak. Burada DeepSleep imdadımıza yetişiyor. DeepSleep sayesinde cihaz görevi bittikten sonra derin uykuya geçerek işlemciyi kapatıyor ve bir sonraki göreve gelene kadar uyanmıyor.&lt;/p&gt;
+
+&lt;p&gt;Burada esp8266 modülünü uyandırmak için &lt;a href=&quot;https://en.wikipedia.org/wiki/Real-time_clock&quot; target=&quot;_blank&quot;&gt;RTC&lt;/a&gt; kullanılabileceği gibi modül üzerinde bulunan enable pinine 3v kare sinyal gönderilerek de uyandırılabilir.&lt;/p&gt;
+
+&lt;p&gt;Bu projede cihazı uyandıran etken hareket sensöründen esp8266 üzerindeki enable pinine gelen ve yaklaşık olarak 20 saniye süren 3v kare sinyaldir.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1Hab03AvicGZn5WiPFKJaqE8WajHTMnSq&quot; alt=&quot;Tittle-Photo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Yukarıdaki tabloda görüldüğü gibi deepsleep modunda modül RTC hariç diğer her şeyi (Wifi,System Clock, CPU) kapatarak yaklaşık 20 mikroamperlik çekilen akım miktarına ulaşıyor. Tabloda bu modül için 3 farklı sleep modu bulunmaktadır. Bunlardan en az güç tüketen sleep modu deepsleep’dir.&lt;/p&gt;
+
+&lt;h2 id=&quot;projenin-ifttt-kurulumu&quot;&gt;Projenin IFTTT Kurulumu&lt;/h2&gt;
+&lt;p&gt;Bu kısımda proje için gerekli IFTTT ayaralarının kurulumu anlatılmaktadır.&lt;/p&gt;
+&lt;h4 id=&quot;ifttt-google-tablolar-bağlantısı&quot;&gt;IFTTT Google Tablolar Bağlantısı&lt;/h4&gt;
+
+&lt;p&gt;IFTTT web sitesine &lt;a href=&quot;https://ifttt.com/&quot;&gt;buradan&lt;/a&gt; ulaşabilirsiniz. Siteye google hesabınızla kayıt olup giriş yaptıktan sonra sırasıyla aşağıdaki adımları izleyerek google tablolara bağlanarak hareket algılandığında tabloya kayıt yaptırabiliriz.&lt;/p&gt;
+
+&lt;p&gt;Ana sayfada “create” butonuna bastıktan ve if kutucuğu içerisindeki “add” butonuna bastıktan sonra servisler içerisinden webhook servisini seçiyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;İlk olarak IFTTT sitesinde ana sayfada iken sağ üst köşedeki “Create” butonuna tıklıyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1iLJ4JJd7-m1fLEu8Y1wJM15RXsZlJXZF&quot; alt=&quot;IFTTT Create&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gelen sayfada if kutucuğu içerisindeki “add” butonuna tıklıyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1B8G0RTALe21FgpL3oJmEuasAai2cAXGc&quot; alt=&quot;IFTTT IF THIS THAN THAT&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;event name kısmına Iot_Motion_Sensor yazıyorum bu benim yazdığım programın bir gereği siz başka bir şey yazabilirsiniz ancak az sonra göstereceğim link içerisinde bunu belirtmeniz gerekir. create trigger butonuna tıkladıktan sonra then kutucuğunun içerisindeki add butonuna tıklıyoruz ve tekrardan yeni bir servis arıyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=18sMi6XtDlcHowGZ0iyk4smMEw91zyjsN&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google sheets servisini arıyoruz ve seçiyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1jHGeHfhtW_ecD_TgvVwF99dPzqlFIO0C&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Daha sonra add row to spreadsheet seçeneğine tıklıyoruz. Bunu seçmemizin sebebi tabloya her yeni bir bilgi geldiğinde yeni bir satıra ekleniyor olmasıdır.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1CnbDMIM9bwLpFpeo8HDDd8WhYBOnJyEa&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ayarlar aşağıdaki gibi olmalıdır eğer isterseniz tablo adını değiştirebilirsiniz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1HWE3MFWzSjnRSMarpMJIO2zsxnvD8CME&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Triggerdan önceki eğik çizgiden itibaren sona kadar olan kısmı kopyalayarak kod içerisindeki ilgili kısma yapıştırıyoruz. Burada test it butonuna basarak tabloya kayıt işlemini test edebilirsiniz. Eğer bu aşamaya kadar her şey doğru gittiyse google drive hesabınız içerisinde bir tablo oluşturacak ve içerisinde bir kayıt belirecektir.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1lmpzAYEXq-tjezLYjkVUDAoIKOXzS7Tp&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;ifttt-bildirim-ayarları&quot;&gt;IFTTT Bildirim Ayarları&lt;/h4&gt;
+
+&lt;p&gt;Bu kısımda IFTTT mobil uygulaması aracılığıyla telefona bildirim gönderme özelliğini gerçekleştireceğiz.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Yukarıdaki işlemle aynı olarak create butonuna basarak yeni bir senaryo oluşturacağız. Daha sonra if kutucuğundaki add butonuna tıkladıktan sonra webhook’u seçiyoruz. Aşağıdaki gibi textbox kısmına notification yazıp create trigger butonuna tıklıyoruz.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1wkm9n_knZmtL2VYaVRRS5LRsVxHbKdnK&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Then kutucuğu içerisindeki add butonuna tıklayıp çıkan pencerede notification appletini aratarak buluyoruz ve daha sonra tıklıyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1MfW7cZt85L6TZKJ-CtEq8YvpAqq65M0h&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bu kısımda iki seçenek geliyor. Biz “Send a Notification From The IFTTT App” seçeneğine tıklayacağız.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1FP2x8NdCgMiMY0yMHHxEz5yJR8uP1q6h&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Son olarak bildirimin içeriğini çıkan pencerede girdikten sonra create action butonuna basarak senaryomuzu oluşturmuş oluyoruz.&lt;/strong&gt;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1ni5QuGvwtegBdMvGtUUGGoPY2yBjR7QY&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bu kısımdan sonra google tablolara ekleme yaptığımız bölümde olduğu gibi linki alarak kod içerisindeki ilgili bölüme yapıştırıyoruz.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;proje-devre-şeması&quot;&gt;Proje Devre Şeması&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1FD-H2XcboMtBJ9XSJiew-ljU0Qpym0FJ&quot; alt=&quot;google asistant ayarlar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;proje-kaynak-kodları&quot;&gt;Proje Kaynak Kodları&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;#include &amp;lt;ESP8266WiFi.h&amp;gt;
+#include &amp;lt;ESP8266HTTPClient.h&amp;gt;  
+#include &amp;lt;DNSServer.h&amp;gt;
+#include &amp;lt;WiFiManager.h&amp;gt; 
+
+void Send_Notification_From_IFTTT(); 
+void Start_To_Wifi_Connection();
+void makeIFTTTRequest(String status); 
+
+// *********IFTTT****************
+
+const char* server = &quot;maker.ifttt.com&quot;;
+
+const char* resource = &quot;google tablolar kayıt linki&quot;; // Google tablolar kayıt linki
+
+HTTPClient http;
+
+void setup() {
+  Serial.begin(9600);
+  WiFiManager wifiManager;      
+  wifiManager.autoConnect(&quot;Mlock Motion Security&quot;); // &quot;Mlock Motion Security&quot; adında bir AP oluşturur.
+}
+
+void loop() {
+  Send_Notification_From_IFTTT();
+  makeIFTTTRequest(&quot;Hareket algılandı!&quot;);
+  ESP.deepSleep(0);                                 // Derin uykuya geçirir.
+}
+
+void Send_Notification_From_IFTTT()    
+{ 
+  String url = &quot;http://maker.ifttt.com/bildirim linki&quot;; // Bildirim senaryosunun linki
+  http.begin(url);
+  http.GET();
+  http.end();
+}
+
+void makeIFTTTRequest(String status) {
+  WiFiClient client;
+  Serial.print(&quot;Connecting to &quot;); 
+  Serial.print(server);
+  
+  int retries = 5;
+  while(!!!client.connect(server, 80) &amp;amp;&amp;amp; (retries-- &amp;gt; 0)) {
+    Serial.print(&quot;.&quot;);
+  }
+  Serial.println();
+  if(!!!client.connected()) {
+    Serial.println(&quot;Failed to connect...&quot;);
+  }
+  
+  Serial.print(&quot;Request resource: &quot;); 
+  Serial.println(resource);
+
+  String jsonObject = String(&quot;{\&quot;value1\&quot;:\&quot;&quot;) + status + &quot;\&quot;}&quot;;
+                      
+  client.println(String(&quot;POST &quot;) + resource + &quot; HTTP/1.1&quot;);
+  client.println(String(&quot;Host: &quot;) + server); 
+  client.println(&quot;Connection: close\r\nContent-Type: application/json&quot;);
+  client.print(&quot;Content-Length: &quot;);
+  client.println(jsonObject.length());
+  client.println();
+  client.println(jsonObject);
+        
+  int timeout = 5 * 10; //5 seconds             
+  while(!!!client.available() &amp;amp;&amp;amp; (timeout-- &amp;gt; 0)){
+    delay(100);
+  }
+  if(!!!client.available()) {
+    Serial.println(&quot;No response...&quot;);
+  }
+  while(client.available()){
+    Serial.write(client.read());
+  }
+  
+  Serial.println(&quot;\nclosing connection&quot;);
+  client.stop(); 
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;sonuç-&quot;&gt;Sonuç :)&lt;/h2&gt;
+
+&lt;div class=&quot;youtube-wrapper&quot;&gt;
+    &lt;iframe src=&quot;https://www.youtube.com/embed/HDxh7Rv0afM&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Rfid Ve Google Asistant İle Açılabilen Kapı Otomatiği</title>
