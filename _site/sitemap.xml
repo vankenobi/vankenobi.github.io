@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://localhost:4000/about</loc>
-<lastmod>2021-07-03T21:59:48+03:00</lastmod>
+<lastmod>2021-07-03T22:04:13+03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/search</loc>
-<lastmod>2021-07-03T21:59:48+03:00</lastmod>
+<lastmod>2021-07-03T22:04:13+03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/2020/05/13/blog-a%C3%A7%C4%B1ld%C4%B1</loc>
@@ -33,7 +33,7 @@
 <lastmod>2021-06-01T14:39:00+03:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/2021/07/04/esp8266-low-power-door-sensor-with-homeassistant-integration</loc>
+<loc>http://localhost:4000/2021/07/04/esp8266-low-power-door-sensor-with-homeassistant-integration-en</loc>
 <lastmod>2021-07-04T00:50:00+03:00</lastmod>
 </url>
 <url>

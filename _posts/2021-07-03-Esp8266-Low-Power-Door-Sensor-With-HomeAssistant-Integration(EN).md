@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Esp8266 Low Power Door Sensor With HomeAssistant Integration"
+title: "Esp8266 Low Power Door Sensor With HomeAssistant Integration (EN)"
 excerpt: ""
 tags: [Esp8266,Door sensor,HomeAssistant,3D Printer,MQTT,DIY Project,Deep Sleep,Transistor]
 categories: [Esp8266-01] 
